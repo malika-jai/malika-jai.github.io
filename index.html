@@ -24,25 +24,24 @@
   ul { padding-left:1.2em; }
   li { margin:0.5em 0; }
 
-  /* Skill bars */
-  .skill-bar { background: rgba(255,255,255,0.1); border-radius:8px; margin:5px 0; position:relative; }
-  .skill-bar-fill { height:22px; width:0; border-radius:8px; line-height:22px; color:#fff; padding-left:10px; font-weight:bold; transition: width 1.5s; }
-
   /* Project cards */
-  .project-card { background: rgba(78,205,196,0.1); padding:15px; border-radius:12px; margin:10px 0; transition:0.3s; }
-  .project-card:hover { background: rgba(78,205,196,0.25); transform: scale(1.02); }
-  .project-title { font-weight:bold; font-size:1.1em; }
-  .project-links a { margin-right:10px; color:#ff6b6b; transition:0.3s; }
-  .project-links a:hover { color:#f7b32b; }
+  .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+  .project-card { background: rgba(78,205,196,0.1); padding:20px; border-radius:15px; transition:transform 0.4s, box-shadow 0.4s; position:relative; overflow:hidden; }
+  .project-card:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 10px 25px rgba(78,205,196,0.3); }
+  .project-title { font-weight:bold; font-size:1.2em; margin-bottom:8px; }
+  .project-desc { font-size:0.9em; margin-bottom:10px; }
+  .project-links { display:flex; gap:10px; }
+  .project-links a { font-size:1.2em; color:#ff6b6b; transition:0.3s; }
+  .project-links a:hover { color:#f7b32b; transform:scale(1.2); }
+
+  /* Tech stack badges */
+  .badges { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+  .badge { padding:4px 10px; border-radius:20px; font-size:0.75em; font-weight:bold; background:#333; color:#fff; transition:0.3s; }
+  .badge:hover { background:#ff6b6b; color:#121212; }
 
   /* Floating Download Button */
   .download-btn { position: fixed; right:20px; bottom:20px; background:#ff6b6b; color:white; border:none; border-radius:50px; padding:15px 20px; font-size:1em; cursor:pointer; box-shadow:0px 5px 15px rgba(255,107,107,0.4); transition:0.3s; z-index:1001; }
   .download-btn:hover { background:#f7b32b; color:#121212; }
-
-  /* Collapsible */
-  .collapsible { background-color: rgba(255,255,255,0.1); cursor: pointer; padding:12px; border-radius:10px; font-weight:bold; transition: background 0.2s; }
-  .collapsible:hover { background-color: rgba(78,205,196,0.2); }
-  .content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding-left:10px; margin-top:5px; }
 
   /* Theme toggle */
   .theme-toggle { padding:8px 14px; border-radius:8px; border:none; cursor:pointer; background:#4ecdc4; color:#fff; font-weight:bold; }
@@ -51,9 +50,6 @@
 
   body.light { background:#f5f5f5; color:#333; }
   body.light section { background: rgba(0,0,0,0.05); }
-  body.light .skill-bar-fill { color:#000; }
-
-  @media(max-width:700px){ nav { flex-direction: column; align-items: flex-start; } nav a { margin-left:0; margin-top:5px; } }
 </style>
 </head>
 <body class="dark">
@@ -72,106 +68,81 @@
 
 <div class="container">
 
-  <section id="summary">
-    <h2>💼 Professional Summary</h2>
-    <p>Results-driven AI/ML & NLP engineer skilled in Machine Learning, Deep Learning, and Generative AI. Expert in fine-tuning LLMs (LoRA, QLoRA), agentic AI, and RAG frameworks using LangChain, LlamaIndex, Transformers, Hugging Face, and vector DBs. Delivered <span class="highlight">30–40% performance improvements</span> by designing multimodal pipelines and optimizing inference workflows. Experienced in deploying production-grade solutions leveraging Python, SQL, MongoDB, Docker, AWS, and REST APIs.</p>
-  </section>
-
-  <section id="education">
-    <h2>🎓 Education</h2>
-    <ul>
-      <li>M.Tech, IIIT Delhi – 86.2%</li>
-      <li>B.Tech, DPU – 78%</li>
-      <li>12th & 10th, Kendriya Vidyalaya – 70% & 74%</li>
-    </ul>
-  </section>
-
-  <section id="skills">
-    <h2>🛠️ Skills</h2>
-    <h3>Programming & Data Science</h3>
-    <div class="skill-bar"><div class="skill-bar-fill" data-width="95%">Python</div></div>
-    <div class="skill-bar"><div class="skill-bar-fill" data-width="90%">SQL</div></div>
-    <div class="skill-bar"><div class="skill-bar-fill" data-width="85%">Pandas/NumPy</div></div>
-    <div class="skill-bar"><div class="skill-bar-fill" data-width="80%">Scikit-learn</div></div>
-
-    <h3>AI, ML & NLP</h3>
-    <div class="skill-bar"><div class="skill-bar-fill" data-width="90%">PyTorch</div></div>
-    <div class="skill-bar"><div class="skill-bar-fill" data-width="90%">Hugging Face</div></div>
-    <div class="skill-bar"><div class="skill-bar-fill" data-width="85%">LangChain/LlamaIndex</div></div>
-    <div class="skill-bar"><div class="skill-bar-fill" data-width="80%">LoRA/QLoRA</div></div>
-
-    <h3>Cloud & Deployment</h3>
-    <div class="skill-bar"><div class="skill-bar-fill" data-width="85%">AWS (S3, EC2, Lambda)</div></div>
-    <div class="skill-bar"><div class="skill-bar-fill" data-width="80%">Docker/Kubernetes</div></div>
-    <div class="skill-bar"><div class="skill-bar-fill" data-width="80%">FastAPI/REST APIs</div></div>
-  </section>
-
-  <section id="experience">
-    <h2>💼 Work Experience</h2>
-
-    <button class="collapsible">ZKteco Pvt Ltd | Data Scientist – AI | Mar 2025 – Present</button>
-    <div class="content"><ul>
-      <li>Agentic AI platform automating tariff classification, declaration validation, duty calculation, goods valuation using LangChain, FAISS, Hugging Face LLMs, MiniLM embeddings.</li>
-      <li>Fine-tuning: LoRA, QLoRA, PEFT, CoT, RLHF; Deployment on AWS (S3, EC2, ECS/ECR) with monitoring dashboards.</li>
-      <li>Precision@K=0.91, Recall@K=0.87, MMR=0.82, 32% lower perplexity; ~60% manual workload reduction; approvals 2.3x faster.</li>
-    </ul></div>
-
-    <button class="collapsible">K&S Partners | AI/ML Engineer (Consultant) | Nov 2024 – Feb 2025</button>
-    <div class="content"><ul>
-      <li>OCR–LLM system for legal document intelligence using pdfplumber, OpenCV, Tesseract, Camelot; JSON pipelines with OpenAI embeddings and Pinecone.</li>
-      <li>Interactive Q&A chatbot via LlamaIndex + OpenAI LLMs; BLEU=0.79, ROUGE-L=0.76; 45% latency reduction; 28% lower perplexity.</li>
-      <li>Reduced manual legal review by 75%, efficiency +58% with near real-time retrieval.</li>
-    </ul></div>
-
-    <button class="collapsible">InnoSolve Solutions Pvt Ltd | Data Scientist | Nov 2021 – Oct 2024</button>
-    <div class="content"><ul>
-      <li>Enterprise-scale multi-PDF chatbot leveraging Anthropic Claude LLM, Titan embeddings, FAISS; deployed on AWS Bedrock, Lambda, S3.</li>
-      <li>Evaluation metrics: ROUGE-1=0.81, BLEU=0.76, Recall@5=0.89, MRR=0.85; autoscaling, CI/CD, latency optimization; 48% workload reduction.</li>
-      <li>Random Forest model for undeclared goods/valuation anomalies; SHAP feature explainability; Accuracy=88%, F1=0.91; financial exposure reduced 42%.</li>
-    </ul></div>
-  </section>
-
+  <!-- Projects Section -->
   <section id="projects">
     <h2>🚀 Projects</h2>
+    <div class="projects-grid">
 
-    <div class="project-card">
-      <div class="project-title">Conversational Voice AI Assistant</div>
-      <div>Aug 2023 – Jan 2024 | OpenAI Whisper STT + pyttsx3/gTTS TTS | LoRA fine-tuning | FastAPI microservice, Docker & AWS ECS/Lambda</div>
-      <div class="project-links"><a href="#">GitHub</a><a href="#">Live</a></div>
+      <div class="project-card">
+        <div class="project-title">Conversational Voice AI Assistant</div>
+        <div class="project-desc">OpenAI Whisper STT + pyttsx3/gTTS TTS | LoRA fine-tuning | FastAPI + Docker + AWS ECS/Lambda</div>
+        <div class="badges">
+          <span class="badge">Whisper</span>
+          <span class="badge">LoRA</span>
+          <span class="badge">FastAPI</span>
+          <span class="badge">Docker</span>
+          <span class="badge">AWS</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/" target="_blank" title="GitHub Repo">💻</a>
+          <a href="https://example.com" target="_blank" title="Live Demo">🌐</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">Credit Card Fraud Detection</div>
+        <div class="project-desc">XGBoost, SMOTE, SHAP | FastAPI + AWS Lambda/S3 | 96% precision, 94% recall</div>
+        <div class="badges">
+          <span class="badge">XGBoost</span>
+          <span class="badge">SMOTE</span>
+          <span class="badge">SHAP</span>
+          <span class="badge">FastAPI</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/" target="_blank" title="GitHub Repo">💻</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">AI-Powered Recommendation System</div>
+        <div class="project-desc">Collaborative + Content-based Filtering | Matrix Factorization, KNN, LoRA | 85% accuracy</div>
+        <div class="badges">
+          <span class="badge">KNN</span>
+          <span class="badge">LoRA</span>
+          <span class="badge">Matrix Factorization</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/" target="_blank" title="GitHub Repo">💻</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">Predictive Maintenance (LSTM)</div>
+        <div class="project-desc">Multivariate LSTM | FastAPI + Docker + AWS ECS/ECR | 93% accuracy, 35% downtime reduction</div>
+        <div class="badges">
+          <span class="badge">LSTM</span>
+          <span class="badge">FastAPI</span>
+          <span class="badge">Docker</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/" target="_blank" title="GitHub Repo">💻</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">Sentiment Analysis Using NLP</div>
+        <div class="project-desc">NLTK, Scikit-learn, TensorFlow | REST API + Docker + AWS | 91% accuracy</div>
+        <div class="badges">
+          <span class="badge">NLTK</span>
+          <span class="badge">TensorFlow</span>
+          <span class="badge">REST API</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/" target="_blank" title="GitHub Repo">💻</a>
+        </div>
+      </div>
+
     </div>
-
-    <div class="project-card">
-      <div class="project-title">Credit Card Fraud Detection</div>
-      <div>Jan 2023 – May 2023 | XGBoost, SMOTE, SHAP | FastAPI + AWS Lambda/S3 | 96% precision, 94% recall</div>
-      <div class="project-links"><a href="#">GitHub</a></div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-title">AI-Powered Recommendation System</div>
-      <div>Sep 2022 – Dec 2022 | Collaborative + Content-based Filtering | Matrix Factorization, KNN, LoRA fine-tuning | 85% accuracy, 92% precision</div>
-      <div class="project-links"><a href="#">GitHub</a></div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-title">Predictive Maintenance (Time Series Forecasting)</div>
-      <div>Jan 2022 – May 2022 | Multivariate LSTM | FastAPI + Docker + AWS ECS/ECR | 93% classification accuracy, 35% downtime reduction</div>
-      <div class="project-links"><a href="#">GitHub</a></div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-title">Sentiment Analysis Using NLP & ML</div>
-      <div>Nov 2021 – Dec 2021 | NLTK, Scikit-learn, TensorFlow | REST API + Docker + AWS | 91% accuracy</div>
-      <div class="project-links"><a href="#">GitHub</a></div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>📞 Contact</h2>
-    <ul>
-      <li>Email: <a href="mailto:kumardilip218@gmail.com">kumardilip218@gmail.com</a></li>
-      <li>Phone: +91-7905618273</li>
-      <li>Address: 35/59, U Block, DLF Phase 3, Gurgaon, Haryana</li>
-    </ul>
   </section>
 
 </div>
@@ -192,28 +163,8 @@
   }, { threshold:0.2 });
   sections.forEach(sec => observer.observe(sec));
 
-  // Skill bar animation
-  window.addEventListener('load', () => {
-    document.querySelectorAll('.skill-bar-fill').forEach(bar => {
-      bar.style.width = bar.getAttribute('data-width');
-    });
-  });
-
-  // Collapsible experience
-  const coll = document.getElementsByClassName("collapsible");
-  for(let i=0;i<coll.length;i++){
-    coll[i].addEventListener("click",function(){
-      this.classList.toggle("active");
-      const content = this.nextElementSibling;
-      if(content.style.maxHeight){ content.style.maxHeight = null; } 
-      else { content.style.maxHeight = content.scrollHeight + "px"; }
-    });
-  }
-
   // Theme toggle
-  function toggleTheme(){
-    document.body.classList.toggle('light');
-  }
+  function toggleTheme(){ document.body.classList.toggle('light'); }
 
   // PDF download
   function downloadPDF(){
