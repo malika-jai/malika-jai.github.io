@@ -46,159 +46,30 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
 
   <link rel="icon" href="/favicon.ico">
-
-  <style>
-    :root {
-      --bg: #0a0e17;
-      --text: #e0e7ff;
-      --bg-light: #f8fafc;
-      --text-light: #1e293b;
-      --card: rgba(255,255,255,0.05);
-      --muted: #94a3b8;
-      --primary: #00d4ff;
-      --secondary: #ff2e63;
-      --accent: #ffeb3b;
-      --glass: rgba(255,255,255,0.08);
-      --neon: #39ff14;
-      --cyberpunk-blue: #00f0ff;
-      --cyberpunk-pink: #ff007a;
-    }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
-      background: linear-gradient(180deg, var(--bg), #1a1e2e);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      scroll-behavior: smooth;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    /* Preloader */
-    .preloader {
-      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      transition: opacity 0.5s ease;
-    }
-    .preloader.hidden { opacity: 0; pointer-events: none; }
-    .preloader .spinner {
-      width: 60px;
-      height: 60px;
-      border: 6px solid var(--cyberpunk-blue);
-      border-top: 6px solid var(--cyberpunk-pink);
-      border-radius: 50%;
-      animation: spin 1.2s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* Navigation */
-    nav {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(15px);
-      background: linear-gradient(180deg, rgba(10,14,23,0.95), rgba(10,14,23,0.85));
-      border-bottom: 1px solid rgba(255,255,255,0.15);
-      z-index: 1000;
-      transition: box-shadow 0.3s ease;
-    }
-    nav.scrolled { box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
-    .nav-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      font-size: 1.6rem;
-      letter-spacing: 1px;
-    }
-    .brand .logo {
-      height: 60px;
-      width: 60px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, var(--cyberpunk-pink), var(--cyberpunk-blue));
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      color: #fff;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .brand .logo:hover { transform: scale(1.15); box-shadow: 0 10px 25px rgba(0,212,255,0.5); }
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 12px 18px;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .nav-links a:hover {
-      color: var(--cyberpunk-blue);
-      background: var(--glass);
-      transform: translateY(-3px);
-      box-shadow: 0 4px 15px rgba(0,212,255,0.3);
-    }
-    .nav-links a.active {
-      color: var(--cyberpunk-blue);
-      background: var(--glass);
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--cyberpunk-blue), var(--cyberpunk-pink));
-      transition: width 0.3s ease, left 0.3s ease;
-    }
-    .nav-links a:hover::after, .nav-links a.active::after {
-      width: 60%;
-      left: 20%;
-    }
-
-    /* Container */
-    .container { max-width: 1400px; margin: 60px auto; padding: 0 24px; }
-
-    /* Hero with 3D Canvas */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 48px;
-      align-items: center;
-      margin-bottom: 100px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
+.brand .logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.brand .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.brand .logo:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 25px rgba(0,212,255,0.5);
       top: 0;
       left: 0;
       width: 100%;
@@ -240,78 +111,6 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      opacity: 0.3;
-    }
-
-    .cta-row { display: flex; gap: 24px; flex-wrap: wrap; }
-    .btn {
-      padding: 16px 28px;
-      border-radius: 12px;
-      border: none;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.3s ease;
-    }
-    .btn:hover::before { left: 100%; }
-    .btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    }
-    .btn-primary {
-      background: linear-gradient(90deg, var(--cyberpunk-pink), var(--cyberpunk-blue));
-      color: #fff;
-    }
-    .btn-ghost {
-      background: var(--glass);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: var(--text);
-      backdrop-filter: blur(12px);
-    }
-
-    /* Stats */
-    .stats {
-      display: flex;
-      gap: 24px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-    }
-    .stat {
-      padding: 18px 24px;
-      background: var(--glass);
-      border-radius: 12px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      backdrop-filter: blur(12px);
-    }
-    .stat:hover { transform: scale(1.1); box-shadow: 0 8px 20px rgba(0,212,255,0.3); }
-    .stat strong {
-      display: block;
-      font-size: 1.4rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, var(--cyberpunk-blue), var(--accent));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
     /* Profile */
     .profile {
       padding: 32px;
@@ -349,419 +148,11 @@
       color: #fff;
       font-weight: 800;
       font-size: 3.5rem;
-    }
-    .profile .meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1.15rem;
-    }
-
-    /* Sections */
-    section.card {
-      margin-top: 60px;
-      padding: 48px;
-      border-radius: 24px;
-      background: var(--glass);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 15px 50px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
-    }
-    section.card:hover { transform: translateY(-10px); }
-    section.card h2 {
-      margin: 0 0 24px;
-      font-size: 2.8rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: linear-gradient(90deg, var(--cyberpunk-blue), var(--cyberpunk-pink));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
-
-    /* Skills */
-    .skills-wrap {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .skill-pill {
-      background: var(--glass);
-      padding: 12px 18px;
-      border-radius: 999px;
-      font-weight: 600;
-      color: var(--text);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(12px);
-      position: relative;
-      overflow: hidden;
-    }
-    .skill-pill::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0,212,255,0.3), transparent);
-      transition: left 0.3s ease;
-    }
-    .skill-pill:hover::before { left: 100%; }
-    .skill-pill:hover {
-      background: linear-gradient(90deg, var(--cyberpunk-blue), var(--cyberpunk-pink));
-      transform: translateY(-3px);
-      color: #fff;
-      box-shadow: 0 6px 15px rgba(0,212,255,0.3);
-    }
-    .skill-bar {
-      background: rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 8px;
-      position: relative;
-    }
-    .skill-bar .bar {
-      height: 16px;
-      border-radius: 8px;
-      background: linear-gradient(90deg, var(--cyberpunk-blue), var(--cyberpunk-pink));
-      width: 0%;
-      transition: width 1.8s ease-in-out;
-      position: relative;
-    }
-    .skill-bar .bar::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      top: -35px;
-      right: 0;
-      background: var(--glass);
-      color: var(--text);
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-    .skill-bar:hover .bar::after { opacity: 1; }
-    .skill-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-      font-size: 1.15rem;
-      margin-bottom: 10px;
-    }
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-
     /* Timeline (Work Experience) */
-    .timeline {
-      position: relative;
-      padding-left: 44px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 22px;
-      top: 0;
-      bottom: 0;
-      width: 5px;
-      background: linear-gradient(var(--cyberpunk-blue), var(--cyberpunk-pink));
-      border-radius: 5px;
-    }
-    .timeline article {
-      position: relative;
-      margin-bottom: 28px;
-      padding: 24px;
-      border-radius: 20px;
-      background: var(--glass);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease;
-    }
-    .timeline article:hover { transform: translateX(12px); box-shadow: 0 10px 30px rgba(0,212,255,0.3); }
-    .timeline article::before {
-      content: '';
-      position: absolute;
-      left: -40px;
-      top: 24px;
-      width: 18px;
-      height: 18px;
-      background: var(--cyberpunk-blue);
-      border-radius: 50%;
-      border: 4px solid var(--bg);
-    }
-
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 32px;
-    }
-    .project {
-      padding: 28px;
-      border-radius: 20px;
-      background: var(--glass);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    .project:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 15px 40px rgba(0,212,255,0.4);
-    }
-    .project .meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1.15rem;
-    }
-    .badges {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .badge {
-      font-size: 1rem;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: var(--glass);
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    .badge:hover {
-      background: var(--cyberpunk-blue);
-      color: #fff;
-      transform: translateY(-3px);
-    }
-    .project-metrics {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--glass);
-      padding: 10px 14px;
-      border-radius: 10px;
-      opacity: 0;
-      transform: translateY(12px);
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
-      color: var(--text);
-      backdrop-filter: blur(12px);
-    }
-    .project:hover .project-metrics { opacity: 1; transform: translateY(0); }
-
-    /* Contact */
-    .contact-row {
-      display: flex;
-      gap: 32px;
-      flex-direction: row;
-    }
-    .contact-form {
-      flex: 1;
-      background: var(--glass);
-      padding: 28px;
-      border-radius: 20px;
-      backdrop-filter: blur(12px);
-      box-sizing: border-box;
-    }
-    .contact-info {
-      width: 400px;
-      background: var(--glass);
-      padding: 28px;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-      backdrop-filter: blur(12px);
-      box-sizing: border-box;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: transparent;
-      color: var(--text);
-      transition: all 0.3s ease;
-      font-family: 'Inter', sans-serif;
-      box-sizing: border-box;
-    }
-    input:focus, textarea:focus {
-      border-color: var(--cyberpunk-blue);
-      box-shadow: 0 0 10px rgba(0,212,255,0.4);
-      outline: none;
-    }
-    input:invalid:focus, textarea:invalid:focus {
-      border-color: var(--cyberpunk-pink);
-      box-shadow: 0 0 10px rgba(255,46,99,0.4);
-    }
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    /* Chatbot Toggle */
-    .chatbot-toggle {
-      position: fixed;
-      bottom: 100px;
-      right: 30px;
-      background: linear-gradient(90deg, var(--cyberpunk-blue), var(--cyberpunk-pink));
-      color: #fff;
-      padding: 16px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
-    .chatbot-toggle:hover {
-      transform: scale(1.2);
-      box-shadow: 0 8px 20px rgba(0,212,255,0.4);
-    }
-    .chatbot {
-      position: fixed;
-      bottom: 160px;
-      right: 30px;
-      width: 320px;
-      background: var(--glass);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      backdrop-filter: blur(12px);
-      display: none;
-      z-index: 1000;
-    }
-    .chatbot.active { display: block; }
-    .chatbot input {
-      margin-bottom: 12px;
-    }
-    .chatbot .chat-output {
-      max-height: 200px;
-      overflow-y: auto;
-      margin-bottom: 12px;
-      padding: 12px;
-      border-radius: 12px;
-      background: rgba(0,0,0,0.1);
-    }
-
-    /* Back to Top */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: linear-gradient(90deg, var(--cyberpunk-blue), var(--cyberpunk-pink));
-      color: #fff;
-      padding: 16px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
-    .back-to-top:hover {
-      transform: scale(1.2);
-      box-shadow: 0 8px 20px rgba(0,212,255,0.4);
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 100px;
-      padding: 56px 0;
-      color: var(--muted);
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      background: var(--glass);
-      backdrop-filter: blur(12px);
-    }
-    .ai-insights {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    .ai-insights a {
-      color: var(--cyberpunk-blue);
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    .ai-insights a:hover { color: var(--cyberpunk-pink); transform: translateY(-3px); }
-
-    /* Theme Modes */
-    body.light {
-      --bg: var(--bg-light);
-      --text: var(--text-light);
-      --card: rgba(0,0,0,0.05);
-      --muted: #4b5563;
-      --glass: rgba(0,0,0,0.05);
-    }
-    body.neon {
-      --bg: #0a0e17;
-      --text: #e0e7ff;
-      --card: rgba(57,255,20,0.1);
-      --muted: #94a3b8;
-      --glass: rgba(57,255,20,0.1);
-      --primary: #39ff14;
-      --secondary: #ff2e63;
-    }
-    body.ai {
-      --bg: #1a1e2e;
-      --text: #e0e7ff;
-      --card: rgba(0,212,255,0.1);
-      --muted: #94a3b8;
-      --glass: rgba(0,212,255,0.1);
-      --primary: #00f0ff;
-      --secondary: #ff007a;
-    }
-    body.light .btn-primary, body.neon .btn-primary, body.ai .btn-primary { color: #fff; }
+cyberpunk-blue), var(--cyberpunk-pink));
     body.light .logo, body.neon .logo, body.ai .logo { color: #fff; }
-    body.light nav, body.neon nav, body.ai nav { background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85)); }
-    body.light .skill-bar, body.neon .skill-bar, body.ai .skill-bar { background: rgba(0,0,0,0.08); }
-    body.light .badge, body.neon .badge, body.ai .badge { background: rgba(0,0,0,0.08); }
-    body.light .hero::before, body.neon .hero::before, body.ai .hero::before { background: radial-gradient(circle at 20% 20%, rgba(0,212,255,0.15), transparent 70%); }
-
-    /* Responsive */
-    @media (max-width: 1000px) {
-      .hero { grid-template-columns: 1fr; gap: 48px; }
-      .contact-row { flex-direction: column; }
-      .contact-info { width: 100%; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .grid-2 { grid-template-columns: 1fr; }
-      .nav-links { gap: 14px; }
-      .nav-links a { padding: 10px 14px; }
-      .profile { position: static; }
-    }
-    @media (max-width: 600px) {
-      .headline { font-size: clamp(32px, 6vw, 48px); }
-      .hero-card, .profile, .contact-form, .contact-info { padding: 28px; }
-      .btn { padding: 14px 24px; }
-      section.card { padding: 28px; }
-      .chatbot { width: 100%; right: 0; border-radius: 0; }
-    }
-  </style>
-</head>
-<body>
-  <!-- Preloader -->
-  <div class="preloader"><div class="spinner"></div></div>
-
-  <nav role="navigation">
-    <div class="nav-inner">
-      <div class="brand"><div class="logo">DK</div><div>Dilip Kumar Yadav</div></div>
+  <img src="profile.jpg" alt="DK" />
+</div><div>Dilip Kumar Yadav</div></div>
       <div class="nav-links" id="navLinks">
         <a href="#summary" aria-label="Go to Professional Summary">Summary</a>
         <a href="#education" aria-label="Go to Education">Education</a>
@@ -797,333 +188,73 @@
           <strong>Tech Stack:</strong> PyTorch · Hugging Face · LangChain · AWS · Docker · LoRA/QLoRA
         </div>
       </div>
-      <aside class="profile" data-gsap="fade-left">
-        <div class="profile-img-container">
-          <img src="/profile.jpg" alt="Dilip Kumar Yadav — profile" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="img-fallback">DK</div>
-        </div>
-        <div class="meta">
-          <div>
-            <div style="font-weight:800">Dilip Kumar Yadav</div>
-            <div style="color:var(--muted); font-size:0.95rem">AI/ML Engineer — NLP · GenAI · Agentic AI</div>
-          </div>
-          <div style="text-align:right">
-            <div style="font-weight:700">Gurgaon, India</div>
-            <div style="color:var(--muted); font-size:0.9rem">kumardilip218@gmail.com · +91-7905618273</div>
-          </div>
-        </div>
-        <div style="display:flex; gap:14px; justify-content:space-between; margin-top:14px">
-          <a class="btn btn-ghost" href="https://github.com/dilipkumaryadav" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i> GitHub</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/dilip-kumar-yadav" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        </div>
-      </aside>
-    </div>
-
-    <!-- SUMMARY -->
-    <section id="summary" class="card" data-gsap="fade-up">
-      <h2><i class="fas fa-briefcase"></i> Professional Summary</h2>
-      <p>Results-driven AI/ML and NLP engineer with proven expertise in building scalable, intelligent systems using Machine Learning, Deep Learning, and Generative AI. Skilled in fine-tuning LLMs (LoRA, QLoRA), developing agentic AI and RAG frameworks using LangChain, LlamaIndex, Transformers, Hugging Face, and vector databases. Experienced in deploying production-grade solutions leveraging Python, SQL, MongoDB, Docker, AWS, and REST APIs. Delivered 30–40% improvements in system performance by designing multimodal pipelines and optimizing inference workflows. Passionate about applying advanced analytics and automation to solve real-world problems and drive measurable business value.</p>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="card" data-gsap="fade-up" data-gsap-delay="0.2">
-      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-      <div style="margin-top:20px; display:flex; flex-direction:column; gap:20px">
-        <article style="padding:20px; border-radius:16px; background:var(--glass); backdrop-filter:blur(12px);">
-          <div style="font-weight:800">M.Tech, IIIT Delhi</div>
-          <div style="color:var(--muted)">86.2%</div>
-        </article>
-        <article style="padding:20px; border-radius:16px; background:var(--glass); backdrop-filter:blur(12px);">
-          <div style="font-weight:800">B.Tech, DPU</div>
-          <div style="color:var(--muted)">78%</div>
-        </article>
-        <article style="padding:20px; border-radius:16px; background:var(--glass); backdrop-filter:blur(12px);">
-          <div style="font-weight:800">12th & 10th, Kendriya Vidyalaya</div>
-          <div style="color:var(--muted)">12th: 70% | 10th: 74%</div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="card" data-gsap="fade-up" data-gsap-delay="0.3">
-      <h2><i class="fas fa-tools"></i> Skills</h2>
-      <div class="grid-2" style="margin-top:20px">
-        <div>
-          <h3>Programming & Data Science</h3>
-          <div class="skills-wrap" style="margin:14px 0">
-            <span class="skill-pill">Python</span>
-            <span class="skill-pill">SQL</span>
-            <span class="skill-pill">Bash</span>
-            <span class="skill-pill">R</span>
-            <span class="skill-pill">MATLAB</span>
-            <span class="skill-pill">Pandas</span>
-            <span class="skill-pill">NumPy</span>
-            <span class="skill-pill">SciPy</span>
+Gurgaon, India</div>
+Tech, IIIT Delhi</div>
+2%</div>
+Tech, DPU</div>
+</div>
+12th: 70% | 10th: 74%</div>
+span>
+span>
+span>
+span>
+span>
             <span class="skill-pill">Scikit-learn</span>
             <span class="skill-pill">Matplotlib</span>
-            <span class="skill-pill">Seaborn</span>
-            <span class="skill-pill">Power BI</span>
-            <span class="skill-pill">Tableau</span>
-            <span class="skill-pill">Excel</span>
+span>
+span>
+span>
             <span class="skill-pill">Statistics</span>
-            <span class="skill-pill">XGBoost</span>
-            <span class="skill-pill">LightGBM</span>
-            <span class="skill-pill">KNN</span>
-            <span class="skill-pill">SVM</span>
-            <span class="skill-pill">Linear Regression</span>
-            <span class="skill-pill">Logistic Regression</span>
-            <span class="skill-pill">Random Forest</span>
-          </div>
-          <div style="margin-top:14px">
-            <div class="skill-row"><div>Python</div><div><span class="sr-only">Proficiency: 90%</span>90%</div></div>
-            <div class="skill-bar" aria-hidden="true"><div class="bar" data-width="90%" data-tooltip="90% Proficiency"></div></div>
-            <div class="skill-row" style="margin-top:12px"><div>PyTorch</div><div><span class="sr-only">Proficiency: 85%</span>85%</div></div>
-            <div class="skill-bar" aria-hidden="true"><div class="bar" data-width="85%" data-tooltip="85% Proficiency"></div></div>
-            <div class="skill-row" style="margin-top:12px"><div>Transformers</div><div><span class="sr-only">Proficiency: 80%</span>80%</div></div>
-            <div class="skill-bar" aria-hidden="true"><div class="bar" data-width="80%" data-tooltip="80% Proficiency"></div></div>
-          </div>
-        </div>
-        <div>
-          <h3>AI, ML & NLP</h3>
-          <div class="skills-wrap" style="margin:14px 0">
-            <span class="skill-pill">TensorFlow</span>
-            <span class="skill-pill">PyTorch</span>
-            <span class="skill-pill">Keras</span>
-            <span class="skill-pill">Hugging Face</span>
-            <span class="skill-pill">Transformers</span>
-            <span class="skill-pill">LangChain</span>
+span>
+span>
+/div><div><span class="sr-only">Proficiency: 90%</span>90%</div></div>
+PyTorch</div><div><span class="sr-only">Proficiency: 85%</span>85%</div></div>
+Transformers</div><div><span class="sr-only">Proficiency: 80%</span>80%</div></div>
+/span>
+span>
+span>
+Transformers</span>
+span>
             <span class="skill-pill">LlamaIndex</span>
-            <span class="skill-pill">OpenAI APIs</span>
-            <span class="skill-pill">LoRA</span>
-            <span class="skill-pill">QLoRA</span>
-            <span class="skill-pill">Agentic AI</span>
-            <span class="skill-pill">RAG</span>
-            <span class="skill-pill">Flowise AI</span>
-            <span class="skill-pill">Dify</span>
-            <span class="skill-pill">n8n</span>
-            <span class="skill-pill">CrewAI</span>
-            <span class="skill-pill">NLTK</span>
-            <span class="skill-pill">SpaCy</span>
-            <span class="skill-pill">TextBlob</span>
-            <span class="skill-pill">NER</span>
-            <span class="skill-pill">Topic Modeling</span>
-            <span class="skill-pill">Prompt Engineering</span>
-            <span class="skill-pill">Prompt Evaluation</span>
-          </div>
-          <h3 style="margin-top:20px">MLOps, Deployment & Tools</h3>
-          <div class="skills-wrap" style="margin:14px 0">
-            <span class="skill-pill">Docker</span>
+span>
+span>
+span>
+span>
+span>
             <span class="skill-pill">Kubernetes</span>
-            <span class="skill-pill">Flask</span>
-            <span class="skill-pill">FastAPI</span>
-            <span class="skill-pill">REST APIs</span>
-            <span class="skill-pill">GraphQL</span>
-            <span class="skill-pill">Apollo Client</span>
-            <span class="skill-pill">Git</span>
-            <span class="skill-pill">GitHub</span>
-            <span class="skill-pill">CI/CD</span>
-            <span class="skill-pill">Model Deployment</span>
-            <span class="skill-pill">Model Monitoring</span>
-            <span class="skill-pill">AI Automation</span>
-          </div>
-          <h3 style="margin-top:20px">Cloud & Databases</h3>
-          <div class="skills-wrap" style="margin:14px 0">
-            <span class="skill-pill">AWS</span>
-            <span class="skill-pill">MongoDB</span>
+span>
+span>
+span>
+span>
+span>
+span>
             <span class="skill-pill">PostgreSQL</span>
-            <span class="skill-pill">MySQL</span>
-            <span class="skill-pill">Snowflake</span>
-            <span class="skill-pill">Neo4j</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="card" data-gsap="fade-up" data-gsap-delay="0.4">
-      <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
-      <div class="timeline" style="margin-top:20px">
-        <article data-gsap="flip-left" data-gsap-delay="0.1">
-          <div style="display:flex; justify-content:space-between; gap:16px; align-items:center">
-            <div>
-              <div style="font-weight:800">ZKteco Pvt Ltd (Bangalore)</div>
-              <div style="color:var(--muted)">Data Scientist – Artificial Intelligence | Mar 2024 – Present</div>
+span>
+span>
+span>
+Data Scientist – Artificial Intelligence | Mar 2024 – Present</div>
             </div>
             <div class="project-metrics">Precision@K=0.91 · Recall@K=0.87</div>
-          </div>
-          <ul style="margin-top:14px">
-            <li>Engineered an Agentic AI platform automating tariff classification, declaration validation, duty rate calculation, and goods valuation.</li>
-            <li>Built with LangChain, FAISS, Hugging Face LLMs, and MiniLM embeddings, fine-tuned via LoRA, QLoRA, PEFT, CoT, and RLHF.</li>
-            <li>Deployed on AWS (S3, EC2, ECS/ECR) with monitoring dashboards, achieving MMR=0.82, 32% lower perplexity.</li>
-            <li>Cut manual clearance workload by ~60%, accelerated approvals 2.3x, and strengthened audit readiness.</li>
-          </ul>
-        </article>
-        <article data-gsap="flip-left" data-gsap-delay="0.2">
-          <div style="display:flex; justify-content:space-between; gap:16px; align-items:center">
-            <div>
-              <div style="font-weight:800">K&S Partners (Gurgaon)</div>
-              <div style="color:var(--muted)">AI/ML Engineer (Consultant) | Nov 2023 – Feb 2024</div>
-            </div>
-            <div class="project-metrics">BLEU=0.79 · ROUGE-L=0.76</div>
-          </div>
-          <ul style="margin-top:14px">
-            <li>Engineered an OCR–LLM system for legal document intelligence, extracting structured, unstructured, and tabular data using pdfplumber, OpenCV, Tesseract, and Camelot.</li>
-            <li>Designed JSON pipelines with OpenAI ada-002 embeddings, Pinecone indexing, and an interactive Q&A chatbot via LlamaIndex + OpenAI LLMs.</li>
-            <li>Optimized with prompt engineering and LoRA/QLoRA fine-tuning, achieving 45% latency reduction and 28% lower perplexity.</li>
-            <li>Reduced manual legal document review by 75% and boosted efficiency by 58% with near real-time retrieval.</li>
-          </ul>
-        </article>
-        <article data-gsap="flip-left" data-gsap-delay="0.3">
-          <div style="display:flex; justify-content:space-between; gap:16px; align-items:center">
-            <div>
-              <div style="font-weight:800">InnoSolve Solutions Pvt Ltd (Kolkata)</div>
+ML Engineer (Consultant) | Nov 2023 – Feb 2024</div>
+0.79 · ROUGE-L=0.76</div>
+InnoSolve Solutions Pvt Ltd (Kolkata)</div>
               <div style="color:var(--muted)">Data Scientist | Nov 2021 – Oct 2023</div>
             </div>
             <div class="project-metrics">Accuracy=88% · F1=0.91</div>
-          </div>
-          <ul style="margin-top:14px">
-            <li>Developed an enterprise-scale multi-PDF chatbot leveraging Anthropic Claude LLM, Titan embeddings, and FAISS vector DB, deployed on AWS Bedrock, Lambda, and S3.</li>
-            <li>Implemented retrieval and summarization evaluation (ROUGE-1=0.81, BLEU=0.76, Recall@5=0.89, MRR=0.85) with autoscaling and CI/CD.</li>
-            <li>Built a Random Forest model to detect undeclared goods and valuation anomalies, with SHAP explainability, achieving Precision=0.88, Recall=0.94, AUC-ROC=0.94.</li>
-            <li>Reduced manual review workload by 48%, accelerated responses 1.8x, and reduced financial exposure by 42%.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="card" data-gsap="fade-up" data-gsap-delay="0.5">
-      <h2><i class="fas fa-rocket"></i> Projects</h2>
-      <div style="margin-top:20px" class="projects-grid">
-        <div class="project" data-tilt data-tilt-max="12" data-tilt-speed="500" data-tilt-perspective="1200" data-gsap="zoom-in" data-gsap-delay="0.1">
-          <div class="meta"><div style="font-weight:800">Conversational Voice AI Assistant</div><div style="color:var(--muted); font-size:0.95rem">Aug 2023 – Jan 2024</div></div>
-          <p>Built a voice-enabled assistant using OpenAI Whisper for Speech-to-Text and pyttsx3/gTTS for TTS, integrated with LLMs for contextual query handling. Achieved ~94% STT accuracy across accents. Packaged as a FastAPI microservice, containerized with Docker, and deployed on AWS ECS + Lambda.</p>
-          <div class="project-metrics">STT Accuracy: 94%</div>
-          <div class="badges">
-            <span class="badge">Whisper</span>
-            <span class="badge">FastAPI</span>
-            <span class="badge">LoRA</span>
-            <span class="badge">Docker</span>
-            <span class="badge">AWS</span>
-          </div>
-          <div style="display:flex; gap:14px; margin-top:14px">
-            <a class="btn btn-ghost" href="#" aria-label="Conversational Voice AI GitHub"><i class="fab fa-github"></i> GitHub</a>
-            <a class="btn btn-ghost" href="#" aria-label="Conversational Voice AI Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
-          </div>
-        </div>
-        <div class="project" data-tilt data-tilt-max="12" data-tilt-speed="500" data-tilt-perspective="1200" data-gsap="zoom-in" data-gsap-delay="0.2">
-          <div class="meta"><div style="font-weight:800">Credit Card Fraud Detection</div><div style="color:var(--muted); font-size:0.95rem">Jan 2023 – May 2023</div></div>
-          <p>Developed an XGBoost-based fraud detection model on a highly imbalanced dataset using SMOTE for resampling and SHAP for interpretability. Exposed via FastAPI and deployed on AWS Lambda with S3 triggers. Achieved 96% precision and 94% recall.</p>
-          <div class="project-metrics">Precision: 96% · Recall: 94%</div>
-          <div class="badges">
-            <span class="badge">XGBoost</span>
-            <span class="badge">SHAP</span>
-            <span class="badge">FastAPI</span>
-            <span class="badge">AWS</span>
-          </div>
-          <div style="display:flex; gap:14px; margin-top:14px">
-            <a class="btn btn-ghost" href="#" aria-label="Credit Card Fraud Detection GitHub"><i class="fab fa-github"></i> GitHub</a>
-            <a class="btn btn-ghost" href="#" aria-label="Credit Card Fraud Detection Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
-          </div>
-        </div>
-        <div class="project" data-tilt data-tilt-max="12" data-tilt-speed="500" data-tilt-perspective="1200" data-gsap="zoom-in" data-gsap-delay="0.3">
-          <div class="meta"><div style="font-weight:800">AI-Powered Recommendation System</div><div style="color:var(--muted); font-size:0.95rem">Sep 2022 – Dec 2022</div></div>
-          <p>Designed a personalized recommendation system using collaborative and content-based filtering with KNN and Matrix Factorization. Optimized with LoRA fine-tuning, achieving 85% accuracy and 92% precision.</p>
-          <div class="project-metrics">Accuracy: 85% · Precision: 92%</div>
-          <div class="badges">
-            <span class="badge">KNN</span>
-            <span class="badge">Matrix Factorization</span>
-            <span class="badge">LoRA</span>
-          </div>
-          <div style="display:flex; gap:14px; margin-top:14px">
-            <a class="btn btn-ghost" href="#" aria-label="Recommendation System GitHub"><i class="fab fa-github"></i> GitHub</a>
-            <a class="btn btn-ghost" href="#" aria-label="Recommendation System Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
-          </div>
-        </div>
-        <div class="project" data-tilt data-tilt-max="12" data-tilt-speed="500" data-tilt-perspective="1200" data-gsap="zoom-in" data-gsap-delay="0.4">
-          <div class="meta"><div style="font-weight:800">Predictive Maintenance for Industrial Equipment</div><div style="color:var(--muted); font-size:0.95rem">Jan 2022 – May 2022</div></div>
-          <p>Designed a multivariate LSTM-based predictive maintenance system using real-time sensor data. Built an MLOps pipeline with FastAPI, Docker, and AWS ECS/ECR, achieving 93% classification accuracy and 35% reduction in unplanned downtimes.</p>
-          <div class="project-metrics">Accuracy: 93% · Downtime Reduction: 35%</div>
-          <div class="badges">
-            <span class="badge">LSTM</span>
-            <span class="badge">FastAPI</span>
-            <span class="badge">Docker</span>
-            <span class="badge">AWS</span>
-          </div>
-          <div style="display:flex; gap:14px; margin-top:14px">
-            <a class="btn btn-ghost" href="#" aria-label="Predictive Maintenance GitHub"><i class="fab fa-github"></i> GitHub</a>
-            <a class="btn btn-ghost" href="#" aria-label="Predictive Maintenance Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
-          </div>
-        </div>
-        <div class="project" data-tilt data-tilt-max="12" data-tilt-speed="500" data-tilt-perspective="1200" data-gsap="zoom-in" data-gsap-delay="0.5">
-          <div class="meta"><div style="font-weight:800">Sentiment Analysis Using NLP</div><div style="color:var(--muted); font-size:0.95rem">Nov 2021 – Dec 2021</div></div>
-          <p>Developed a sentiment analysis pipeline using NLTK, Scikit-learn, and TensorFlow, achieving 91% accuracy on 10K+ social media texts. Deployed as a REST API using Docker and AWS.</p>
-          <div class="project-metrics">Accuracy: 91%</div>
-          <div class="badges">
-            <span class="badge">NLTK</span>
-            <span class="badge">Scikit-learn</span>
-            <span class="badge">TensorFlow</span>
-            <span class="badge">Docker</span>
-            <span class="badge">AWS</span>
-          </div>
-          <div style="display:flex; gap:14px; margin-top:14px">
-            <a class="btn btn-ghost" href="#" aria-label="Sentiment Analysis GitHub"><i class="fab fa-github"></i> GitHub</a>
-            <a class="btn btn-ghost" href="#" aria-label="Sentiment Analysis Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="card" data-gsap="fade-up" data-gsap-delay="0.6">
-      <h2><i class="fas fa-envelope"></i> Contact</h2>
-      <div class="contact-row" style="margin-top:20px">
-        <form class="contact-form" action="https://formspree.io/f/{YOUR_FORM_ID}" method="POST" role="form">
-          <label for="name">Name</label>
-          <input id="name" type="text" name="name" required aria-required="true">
-          <label for="email" style="margin-top:12px">Email</label>
-          <input id="email" type="email" name="email" required aria-required="true">
-          <label for="message" style="margin-top:12px">Message</label>
-          <textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
-          <div style="margin-top:14px; display:flex; gap:14px">
-            <button class="btn btn-primary" type="submit" aria-label="Send Message"><i class="fas fa-paper-plane"></i> Send Message</button>
-            <a class="btn btn-ghost" href="mailto:kumardilip218@gmail.com" aria-label="Email Directly"><i class="fas fa-envelope"></i> Email Directly</a>
-          </div>
-        </form>
-        <aside class="contact-info">
-          <div style="font-weight:800">Get in Touch</div>
-          <div style="color:var(--muted); margin-top:14px">Email: <a href="mailto:kumardilip218@gmail.com" aria-label="Email">kumardilip218@gmail.com</a></div>
-          <div style="color:var(--muted); margin-top:10px">Phone: +91-7905618273</div>
-          <div style="color:var(--muted); margin-top:10px">Address: 35/59, U Block, DLF Phase 3, Gurgaon, Haryana</div>
-          <div style="margin-top:20px; display:flex; gap:14px; flex-wrap:wrap">
-            <a class="btn btn-ghost" href="https://github.com/dilipkumaryadav" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i> GitHub</a>
-            <a class="btn btn-ghost" href="https://www.linkedin.com/in/dilip-kumar-yadav" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a class="btn btn-ghost" href="https://dilipkumaryadav.github.io/portfolio/" target="_blank" aria-label="Portfolio"><i class="fas fa-globe"></i> Portfolio</a>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <footer role="contentinfo">
-      <div>© 2025 Dilip Kumar Yadav · Built with <i class="fas fa-heart" style="color:var(--cyberpunk-pink)"></i> using HTML, CSS & JS · Hosted on GitHub Pages</div>
-      <div class="ai-insights">
-        <a href="https://github.com/dilipkumaryadav" target="_blank" aria-label="Explore AI Insights on GitHub">AI Insights <i class="fas fa-code"></i></a>
-      </div>
-    </footer>
-  </main>
-
-  <!-- Chatbot -->
-  <button class="chatbot-toggle" aria-label="Toggle AI Chatbot"><i class="fas fa-robot"></i></button>
-  <div class="chatbot">
-    <div class="chat-output"></div>
-    <input type="text" id="chatInput" placeholder="Ask about my AI projects..." aria-label="Chat with AI Assistant">
-    <button class="btn btn-primary" id="chatSubmit" aria-label="Send Chat Message"><i class="fas fa-paper-plane"></i> Send</button>
-  </div>
-
-  <!-- Back to Top Button -->
-  <button class="back-to-top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
-
-  <!-- Scripts -->
+Conversational Voice AI Assistant</div><div style="color:var(--muted); font-size:0.95rem">Aug 2023 – Jan 2024</div></div>
+Precision: 96% · Recall: 94%</div>
+Powered Recommendation System</div><div style="color:var(--muted); font-size:0.95rem">Sep 2022 – Dec 2022</div></div>
+Accuracy: 85% · Precision: 92%</div>
+Predictive Maintenance for Industrial Equipment</div><div style="color:var(--muted); font-size:0.95rem">Jan 2022 – May 2022</div></div>
+Accuracy: 93% · Downtime Reduction: 35%</div>
+Sentiment Analysis Using NLP</div><div style="color:var(--muted); font-size:0.95rem">Nov 2021 – Dec 2021</div></div>
+Accuracy: 91%</div>
+span>
+span>
+/label>
+Message</label>
+textarea>
+pink)"></i> using HTML, CSS & JS · Hosted on GitHub Pages</div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js" integrity="sha512-H9E2v2rr3Xg8E3vG3vG7q3tG0YVv7l/3fIqb4kO3N0E7S2I1N2qD2Q7kRF3IIsNF3V1B3jPQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
   <script>
     // Preloader
