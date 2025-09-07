@@ -6,106 +6,65 @@
 <title>Dilip Kumar Yadav | AI/ML Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #121212;
-    color: #e0e0e0;
-    scroll-behavior: smooth;
-    transition: background 0.3s, color 0.3s;
-  }
+  /* Basic Reset */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Roboto', sans-serif; background:#121212; color:#e0e0e0; scroll-behavior:smooth; transition:0.3s; }
+  a { color:#1e90ff; text-decoration:none; }
+  h1,h2,h3,h4 { margin:0.3em 0; }
+  h1 { font-size:2.5em; background:linear-gradient(90deg,#ff6b6b,#f7b32b); -webkit-background-clip:text; color:transparent; }
+  h2 { font-size:2em; background:linear-gradient(90deg,#4ecdc4,#1e90ff); -webkit-background-clip:text; color:transparent; }
+  h3 { font-size:1.2em; color:#f7b32b; }
+  h4 { font-size:1em; color:#4ecdc4; }
+  ul { padding-left:1.2em; }
+  li { margin:0.5em 0; }
 
-  a { color: #1e90ff; text-decoration: none; }
-  h1,h2,h3,h4 { margin: 0.3em 0; }
-  h1 { font-size: 2.5em; background: linear-gradient(90deg,#ff6b6b,#f7b32b); -webkit-background-clip: text; color: transparent; }
-  h2 { font-size: 2em; background: linear-gradient(90deg,#4ecdc4,#1e90ff); -webkit-background-clip: text; color: transparent; }
-  h3 { font-size: 1.2em; color: #f7b32b; }
-  h4 { font-size: 1em; color: #4ecdc4; }
-
+  /* Navbar */
   nav {
-    position: sticky;
-    top: 0;
-    background: rgba(18,18,18,0.95);
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #444;
-    z-index: 1000;
+    position: sticky; top:0; background: rgba(18,18,18,0.95);
+    padding:10px 20px; display:flex; justify-content:space-between; align-items:center;
+    border-bottom:1px solid #444; z-index:1000;
   }
-  nav a { margin-left: 20px; font-weight: 500; transition: 0.3s; }
-  nav a:hover { color: #ff6b6b; }
+  nav a { margin-left:20px; font-weight:500; transition:0.3s; }
+  nav a:hover { color:#ff6b6b; }
 
-  .container { max-width: 950px; margin: auto; padding: 20px; }
-  section { margin-bottom: 2em; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.05); transition: transform 0.3s; }
+  /* Container */
+  .container { max-width:950px; margin:auto; padding:20px; }
+
+  /* Section styling */
+  section { margin-bottom:2em; padding:20px; border-radius:15px; background: rgba(255,255,255,0.05); transition: transform 0.3s; }
   section:hover { transform: scale(1.02); }
-  .highlight { color: #ff6b6b; font-weight: bold; }
-  ul { padding-left: 1.2em; }
-  li { margin: 0.5em 0; }
+  .highlight { color:#ff6b6b; font-weight:bold; }
 
   /* Skills */
-  .skills span {
-    display: inline-block;
-    margin: 5px 6px;
-    padding: 5px 10px;
-    border-radius: 8px;
-    background: #ff6b6b;
-    font-size: 0.85em;
-    font-weight: bold;
-    color: #fff;
-    transition: 0.3s;
-  }
+  .skills span { display:inline-block; margin:5px 6px; padding:5px 10px; border-radius:8px; background:#ff6b6b; font-size:0.85em; font-weight:bold; color:#fff; transition:0.3s; }
   .skills span:hover { transform: scale(1.1); }
 
   /* Skill bars */
-  .skill-bar { margin: 10px 0; }
-  .skill-bar span { display: block; height: 12px; border-radius: 8px; background: #ff6b6b; transition: width 1s; }
+  .skill-bar { margin:10px 0; background: rgba(255,255,255,0.1); border-radius:10px; overflow:hidden; }
+  .skill-bar span { display:block; height:12px; border-radius:8px; background:#ff6b6b; width:0; transition: width 1.5s; }
 
   /* Collapsible */
-  .collapsible {
-    background-color: rgba(255,255,255,0.1);
-    cursor: pointer;
-    padding: 12px;
-    border-radius: 10px;
-    font-weight: bold;
-    transition: background 0.2s;
-  }
+  .collapsible { background-color: rgba(255,255,255,0.1); cursor:pointer; padding:12px; border-radius:10px; font-weight:bold; transition:0.2s; margin-top:10px; }
   .collapsible:hover { background-color: rgba(78,205,196,0.2); }
-  .content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding-left:10px; margin-top:5px; }
+  .content { max-height:0; overflow:hidden; transition:max-height 0.3s ease-out; padding-left:10px; margin-top:5px; }
 
-  /* Floating Download Button */
-  .download-btn {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 15px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    box-shadow: 0px 5px 15px rgba(255,107,107,0.4);
-    transition: 0.3s;
-    z-index: 1001;
-  }
-  .download-btn:hover { background: #f7b32b; color: #121212; }
+  /* Download button */
+  .download-btn { position: fixed; right:20px; bottom:20px; background:#ff6b6b; color:white; border:none; border-radius:50px; padding:15px 20px; font-size:1em; cursor:pointer; box-shadow:0px 5px 15px rgba(255,107,107,0.4); transition:0.3s; z-index:1001; }
+  .download-btn:hover { background:#f7b32b; color:#121212; }
 
   /* Footer */
-  footer { text-align: center; padding: 15px; border-top: 1px solid #444; font-size: 0.85em; margin-top: 2em; }
+  footer { text-align:center; padding:15px; border-top:1px solid #444; font-size:0.85em; margin-top:2em; }
 
-  /* Dark/Light Theme */
-  body.light { background: #f5f5f5; color: #333; }
-  body.light section { background: rgba(0,0,0,0.05); }
-  .theme-toggle { padding: 8px 14px; border-radius: 8px; border: none; cursor: pointer; background: #4ecdc4; color: #fff; font-weight: bold; }
+  /* Theme toggle */
+  .theme-toggle { padding:8px 14px; border-radius:8px; border:none; cursor:pointer; background:#4ecdc4; color:#fff; font-weight:bold; }
 
   /* Responsive */
-  @media(max-width:700px){ nav { flex-direction: column; align-items: flex-start; } nav a { margin-left:0; margin-top:5px; } }
+  @media(max-width:700px){ nav { flex-direction:column; align-items:flex-start; } nav a { margin-left:0; margin-top:5px; } }
 </style>
 </head>
 <body class="dark">
 
+<!-- Navbar -->
 <nav>
   <div>👋 Dilip Kumar Yadav</div>
   <div>
@@ -121,148 +80,147 @@
 
 <div class="container">
 
-  <section id="summary">
-    <h2>💼 Professional Summary</h2>
-    <p>Results-driven AI/ML and NLP engineer with proven expertise in building scalable, intelligent systems using Machine Learning, Deep Learning, and Generative AI. Skilled in fine-tuning LLMs (LoRA, QLoRA), developing agentic AI and RAG frameworks using LangChain, LlamaIndex, Transformers, Hugging Face, and vector databases. Experienced in deploying production-grade solutions leveraging Python, SQL, MongoDB, Docker, AWS, and REST APIs. Delivered <span class="highlight">30–40% improvements</span> in system performance by designing multimodal pipelines and optimizing inference workflows. Passionate about applying advanced analytics and automation to solve real-world problems and drive measurable business value.</p>
-  </section>
+<!-- Summary -->
+<section id="summary">
+  <h2>💼 Professional Summary</h2>
+  <p>Results-driven AI/ML and NLP engineer with proven expertise in building scalable, intelligent systems using Machine Learning, Deep Learning, and Generative AI. Skilled in fine-tuning LLMs (LoRA, QLoRA), developing agentic AI and RAG frameworks using LangChain, LlamaIndex, Transformers, Hugging Face, and vector databases. Experienced in deploying production-grade solutions leveraging Python, SQL, MongoDB, Docker, AWS, and REST APIs. Delivered <span class="highlight">30–40% improvements</span> in system performance by designing multimodal pipelines and optimizing inference workflows. Passionate about applying advanced analytics and automation to solve real-world problems and drive measurable business value.</p>
+</section>
 
-  <section id="education">
-    <h2>🎓 Education</h2>
+<!-- Education -->
+<section id="education">
+  <h2>🎓 Education</h2>
+  <ul>
+    <li><strong>M.Tech</strong> – IIIT Delhi, <span class="highlight">86.2%</span></li>
+    <li><strong>B.Tech</strong> – DPU, <span class="highlight">78%</span></li>
+    <li><strong>12th & 10th</strong> – Kendriya Vidyalaya, <span class="highlight">70% & 74%</span></li>
+  </ul>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2>🛠️ Skills Summary</h2>
+  <h3>Programming & Data Science</h3>
+  <div class="skills">
+    <span>Python</span><span>SQL</span><span>Bash</span><span>R</span><span>MATLAB</span><span>Pandas</span>
+    <span>NumPy</span><span>SciPy</span><span>Scikit-learn</span><span>Matplotlib</span><span>Seaborn</span>
+    <span>Power BI</span><span>Tableau</span><span>Excel</span><span>Statistics</span>
+    <span>XGBoost</span><span>LightGBM</span><span>KNN</span><span>SVM</span><span>Linear Regression</span>
+    <span>Logistic Regression</span><span>Random Forest</span>
+  </div>
+  <h3>AI, ML & NLP</h3>
+  <div class="skills">
+    <span>TensorFlow</span><span>PyTorch</span><span>Keras</span><span>Hugging Face</span>
+    <span>Transformers</span><span>LangChain</span><span>LlamaIndex</span><span>OpenAI APIs</span>
+    <span>LoRA</span><span>QLoRA</span><span>Agentic AI</span><span>RAG</span>
+    <span>Flowise AI</span><span>Dify</span><span>n8n</span><span>CrewAI</span>
+    <span>NLTK</span><span>SpaCy</span><span>TextBlob</span><span>NER</span><span>Topic Modeling</span>
+    <span>Prompt Engineering</span><span>Prompt Evaluation</span>
+  </div>
+  <h3>MLOps, Deployment & Tools</h3>
+  <div class="skills">
+    <span>Docker</span><span>Kubernetes</span><span>Flask</span><span>FastAPI</span><span>REST APIs</span>
+    <span>GraphQL</span><span>Apollo Client</span><span>Git</span><span>GitHub</span><span>CI/CD</span>
+    <span>Model Deployment</span><span>Model Monitoring</span><span>AI Automation</span>
+  </div>
+  <h3>Cloud & Databases</h3>
+  <div class="skills">
+    <span>AWS S3</span><span>EC2</span><span>ECS/ECR</span><span>Lambda</span><span>SageMaker</span>
+    <span>MongoDB</span><span>PostgreSQL</span><span>MySQL</span><span>Snowflake</span><span>Neo4j</span>
+  </div>
+</section>
+
+<!-- Work Experience -->
+<section id="experience">
+  <h2>💼 Work Experience</h2>
+
+  <button class="collapsible">ZKteco Pvt Ltd | Data Scientist – AI | Mar 2025 – Present</button>
+  <div class="content">
     <ul>
-      <li><strong>M.Tech</strong> – IIIT Delhi, <span class="highlight">86.2%</span></li>
-      <li><strong>B.Tech</strong> – DPU, <span class="highlight">78%</span></li>
-      <li><strong>12th & 10th</strong> – Kendriya Vidyalaya, <span class="highlight">70% & 74%</span></li>
+      <li>Agentic AI platform automating tariff classification, declaration validation, duty rate calculation, and goods valuation.</li>
+      <li>Built with LangChain, FAISS, Hugging Face LLMs, MiniLM embeddings; fine-tuned via LoRA, QLoRA, PEFT, CoT, RLHF.</li>
+      <li>Deployed on AWS (S3, EC2, ECS/ECR) with monitoring dashboards.</li>
+      <li>Achieved Precision@K=0.91, Recall@K=0.87, MMR=0.82, 32% lower perplexity; reduced manual clearance workload by 60%; accelerated approvals 2.3x; strengthened audit readiness.</li>
     </ul>
-  </section>
+  </div>
 
-  <section id="skills">
-    <h2>🛠️ Skills Summary</h2>
-    <h3>Programming & Data Science</h3>
-    <div class="skills">
-      <span>Python</span><span>SQL</span><span>Bash</span><span>R</span><span>MATLAB</span><span>Pandas</span>
-      <span>NumPy</span><span>SciPy</span><span>Scikit-learn</span><span>Matplotlib</span><span>Seaborn</span>
-      <span>Power BI</span><span>Tableau</span><span>Excel</span><span>Statistics</span>
-      <span>XGBoost</span><span>LightGBM</span><span>KNN</span><span>SVM</span><span>Linear Regression</span>
-      <span>Logistic Regression</span><span>Random Forest</span>
-    </div>
-    <h3>AI, ML & NLP</h3>
-    <div class="skills">
-      <span>TensorFlow</span><span>PyTorch</span><span>Keras</span><span>Hugging Face</span>
-      <span>Transformers</span><span>LangChain</span><span>LlamaIndex</span><span>OpenAI APIs</span>
-      <span>LoRA</span><span>QLoRA</span><span>Agentic AI</span><span>RAG</span>
-      <span>Flowise AI</span><span>Dify</span><span>n8n</span><span>CrewAI</span>
-      <span>NLTK</span><span>SpaCy</span><span>TextBlob</span><span>NER</span><span>Topic Modeling</span>
-      <span>Prompt Engineering</span><span>Prompt Evaluation</span>
-    </div>
-    <h3>MLOps, Deployment & Tools</h3>
-    <div class="skills">
-      <span>Docker</span><span>Kubernetes</span><span>Flask</span><span>FastAPI</span><span>REST APIs</span>
-      <span>GraphQL</span><span>Apollo Client</span><span>Git</span><span>GitHub</span><span>CI/CD</span>
-      <span>Model Deployment</span><span>Model Monitoring</span><span>AI Automation</span>
-    </div>
-    <h3>Cloud & Databases</h3>
-    <div class="skills">
-      <span>AWS S3</span><span>EC2</span><span>ECS/ECR</span><span>Lambda</span><span>SageMaker</span>
-      <span>MongoDB</span><span>PostgreSQL</span><span>MySQL</span><span>Snowflake</span><span>Neo4j</span>
-    </div>
-  </section>
+  <button class="collapsible">K&S Partners | AI/ML Engineer (Consultant) | Nov 2024 – Feb 2025</button>
+  <div class="content">
+    <ul>
+      <li>OCR–LLM system for legal document intelligence using pdfplumber, OpenCV, Tesseract, Camelot.</li>
+      <li>Designed JSON pipelines with OpenAI ada-002 embeddings, Pinecone indexing; interactive Q&A chatbot via LlamaIndex + OpenAI LLMs.</li>
+      <li>Optimized with prompt engineering and LoRA/QLoRA fine-tuning; BLEU=0.79, ROUGE-L=0.76, 45% latency reduction, 28% lower perplexity.</li>
+      <li>Reduced manual document review by 75%, boosted efficiency by 58%.</li>
+    </ul>
+  </div>
 
-  <section id="experience">
-    <h2>💼 Work Experience</h2>
+  <button class="collapsible">InnoSolve Solutions Pvt Ltd | Data Scientist | Nov 2021 – Oct 2024</button>
+  <div class="content">
+    <ul>
+      <li>Enterprise-scale multi-PDF chatbot using Anthropic Claude LLM, Titan embeddings, FAISS; deployed on AWS Bedrock, Lambda, S3.</li>
+      <li>Retrieval & summarization evaluation: ROUGE-1=0.81, BLEU=0.76, Recall@5=0.89, MRR=0.85.</li>
+      <li>Reduced manual review workload by 48%, accelerated responses 1.8x, scalable processing of unlimited PDFs.</li>
+      <li>Random Forest model for detecting undeclared goods & valuation anomalies; deployed on AWS Lambda, SageMaker, S3 with SHAP explainability.</li>
+      <li>Achieved Accuracy=88%, Precision=0.88, Recall=0.94, AUC-ROC=0.94, F1=0.91; reduced financial exposure by 42%.</li>
+    </ul>
+  </div>
+</section>
 
-    <button class="collapsible">ZKteco Pvt Ltd | Data Scientist – AI | Mar 2025 – Present</button>
-    <div class="content">
-      <ul>
-        <li>Agentic AI platform automating tariff classification, declaration validation, duty rate calculation, and goods valuation.</li>
-        <li>Built with LangChain, FAISS, Hugging Face LLMs, MiniLM embeddings; fine-tuned via LoRA, QLoRA, PEFT, CoT, RLHF.</li>
-        <li>Deployed on AWS (S3, EC2, ECS/ECR) with monitoring dashboards.</li>
-        <li>Achieved Precision@K=0.91, Recall@K=0.87, MMR=0.82, 32% lower perplexity; reduced manual clearance workload by 60%; accelerated approvals 2.3x; strengthened audit readiness.</li>
-      </ul>
-    </div>
+<!-- Projects -->
+<section id="projects">
+  <h2>🚀 Projects</h2>
 
-    <button class="collapsible">K&S Partners | AI/ML Engineer (Consultant) | Nov 2024 – Feb 2025</button>
-    <div class="content">
-      <ul>
-        <li>OCR–LLM system for legal document intelligence using pdfplumber, OpenCV, Tesseract, Camelot.</li>
-        <li>Designed JSON pipelines with OpenAI ada-002 embeddings, Pinecone indexing; interactive Q&A chatbot via LlamaIndex + OpenAI LLMs.</li>
-        <li>Optimized with prompt engineering and LoRA/QLoRA fine-tuning; BLEU=0.79, ROUGE-L=0.76, 45% latency reduction, 28% lower perplexity.</li>
-        <li>Reduced manual document review by 75%, boosted efficiency by 58%.</li>
-      </ul>
-    </div>
+  <button class="collapsible">Conversational Voice AI Assistant (Aug 2023 – Jan 2024)</button>
+  <div class="content">
+    <ul>
+      <li>Voice-enabled assistant using OpenAI Whisper STT + pyttsx3/gTTS TTS; LLMs for contextual query handling.</li>
+      <li>FastAPI microservice, Dockerized, deployed on AWS ECS + Lambda; LoRA fine-tuning; ~94% STT accuracy.</li>
+    </ul>
+  </div>
 
-    <button class="collapsible">InnoSolve Solutions Pvt Ltd | Data Scientist | Nov 2021 – Oct 2024</button>
-    <div class="content">
-      <ul>
-        <li>Enterprise-scale multi-PDF chatbot using Anthropic Claude LLM, Titan embeddings, FAISS; deployed on AWS Bedrock, Lambda, S3.</li>
-        <li>Retrieval and summarization evaluation: ROUGE-1=0.81, BLEU=0.76, Recall@5=0.89, MRR=0.85.</li>
-        <li>Reduced manual review workload by 48%, accelerated responses 1.8x, scalable processing of unlimited PDFs.</li>
-        <li>Random Forest model for detecting undeclared goods and valuation anomalies; deployed on AWS Lambda, SageMaker, S3 with SHAP explainability.</li>
-        <li>Achieved Accuracy=88%, Precision=0.88, Recall=0.94, AUC-ROC=0.94, F1=0.91; reduced financial exposure by 42%.</li>
-      </ul>
-    </div>
-  </section>
+  <button class="collapsible">Credit Card Fraud Detection (Jan 2023 – May 2023)</button>
+  <div class="content">
+    <ul>
+      <li>XGBoost-based model with SMOTE resampling, SHAP explainability.</li>
+      <li>FastAPI + AWS Lambda deployment; batch scoring via S3 triggers.</li>
+      <li>96% precision, 94% recall; compliance-friendly dashboards.</li>
+    </ul>
+  </div>
 
-  <section id="projects">
-    <h2>🚀 Projects</h2>
+  <button class="collapsible">AI-Powered Recommendation System (Sep 2022 – Dec 2022)</button>
+  <div class="content">
+    <ul>
+      <li>Collaborative & content-based filtering; Matrix Factorization + KNN; LoRA fine-tuning.</li>
+      <li>85% accuracy, 92% precision; real-time recommendation engine.</li>
+    </ul>
+  </div>
 
-    <button class="collapsible">Conversational Voice AI Assistant (Aug 2023 – Jan 2024)</button>
-    <div class="content">
-      <ul>
-        <li>Voice-enabled assistant using OpenAI Whisper STT + pyttsx3/gTTS TTS; LLMs for contextual query handling.</li>
-        <li>FastAPI microservice, Dockerized, deployed on AWS ECS + Lambda; LoRA fine-tuning; ~94% STT accuracy.</li>
-      </ul>
-    </div>
+  <button class="collapsible">Predictive Maintenance (Jan 2022 – May 2022)</button>
+  <div class="content">
+    <ul>
+      <li>Multivariate LSTM forecasting for industrial equipment failure using real-time sensor data.</li>
+      <li>Full MLOps pipeline with FastAPI, Docker, AWS ECS/ECR, S3; logging & alerting integrated.</li>
+      <li>93% classification accuracy, 35% reduction in unplanned downtimes.</li>
+    </ul>
+  </div>
 
-    <button class="collapsible">Credit Card Fraud Detection (Jan 2023 – May 2023)</button>
-    <div class="content">
-      <ul>
-        <li>XGBoost-based model with SMOTE resampling, SHAP explainability.</li>
-        <li>FastAPI + AWS Lambda deployment; batch scoring via S3 triggers.</li>
-        <li>96% precision, 94% recall; compliance-friendly dashboards.</li>
-      </ul>
-    </div>
+  <button class="collapsible">Sentiment Analysis Using NLP & ML (Nov 2021 – Dec 2021)</button>
+  <div class="content">
+    <ul>
+      <li>Pipeline using NLTK, Scikit-learn, TensorFlow; 91% accuracy on 10K+ social media texts.</li>
+      <li>REST API deployment using Docker + AWS; scalable, real-time analysis.</li>
+    </ul>
+  </div>
+</section>
 
-    <button class="collapsible">AI-Powered Recommendation System (Sep 2022 – Dec 2022)</button>
-    <div class="content">
-      <ul>
-        <li>Collaborative & content-based filtering; Matrix Factorization + KNN; LoRA fine-tuning.</li>
-        <li>85% accuracy, 92% precision; real-time recommendation engine.</li>
-      </ul>
-    </div>
-
-    <button class="collapsible">Predictive Maintenance (Jan 2022 – May 2022)</button>
-    <div class="content">
-      <ul>
-        <li>Multivariate LSTM forecasting for industrial equipment failure using real-time sensor data.</li>
-        <li>Full MLOps pipeline with FastAPI, Docker, AWS ECS/ECR, S3; logging & alerting integrated.</li>
-        <li>93% classification accuracy, 35% reduction in unplanned downtimes.</li>
-      </ul>
-    </div>
-
-    <button class="collapsible">Sentiment Analysis Using NLP & ML (Nov 2021 – Dec 2021)</button>
-    <div class="content">
-      <ul>
-        <li>Pipeline using NLTK, Scikit-learn, TensorFlow; 91% accuracy on 10K+ social media texts.</li>
-        <li>REST API deployment using Docker + AWS; scalable, real-time analysis.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>📬 Contact</h2>
-    <p>Email: <a href="mailto:kumardilip218@gmail.com">kumardilip218@gmail.com</a></p>
-    <p>Phone: +91-7905618273</p>
-    <p>Address: 35/59, U Block, DLF Phase 3, Gurgaon, Haryana</p>
-    <p>Portfolio: <a href="https://malika-jai.github.io/" target="_blank">malika-jai.github.io</a></p>
-    <p>GitHub: <a href="https://github.com/your-username" target="_blank">github.com/your-username</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/your-username" target="_blank">linkedin.com/in/your-username</a></p>
-    <form action="https://formspree.io/f/{YOUR_FORM_ID}" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required><br><br>
-      <input type="email" name="email" placeholder="Your Email" required><br><br>
-      <textarea name="message" placeholder="Your Message" required></textarea><br><br>
-      <button type="submit">Send</button>
-    </form>
-  </section>
+<!-- Contact -->
+<section id="contact">
+  <h2>📬 Contact</h2>
+  <p>Email: <a href="mailto:kumardilip218@gmail.com">kumardilip218@gmail.com</a></p>
+  <p>Phone: +91-7905618273</p>
+  <p>Address: 35/59, U Block, DLF Phase 3, Gurgaon, Haryana</p>
+  <p>GitHub: <a href="https://github.com/your-username" target="_blank">github.com/your-username</a></p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/your-username" target="_blank">linkedin.com/in/your-username</a></p>
+</section>
 
 </div>
 
@@ -274,7 +232,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-  // Collapsible
+  // Collapsible functionality
   const coll = document.getElementsByClassName("collapsible");
   for (let i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function() {
@@ -298,11 +256,18 @@
       callback: function(doc) {
         doc.save("Dilip_Kumar_Yadav_Resume.pdf");
       },
-      x: 20,
-      y: 20,
-      html2canvas: { scale: 0.5 }
+      x:20, y:20, html2canvas:{scale:0.5}
     });
   }
+
+  // Animate skill bars
+  window.onload = () => {
+    const skillBars = document.querySelectorAll('.skill-bar span');
+    skillBars.forEach((bar,i)=>{
+      const width = Math.floor(Math.random()*40)+60; // example random width 60-100%
+      setTimeout(()=>{ bar.style.width = width + '%'; }, i*200);
+    });
+  };
 </script>
 </body>
 </html>
