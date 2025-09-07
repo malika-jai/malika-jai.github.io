@@ -1,188 +1,387 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dilip Kumar Yadav | AI/ML Engineer</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- SEO / Social -->
+  <meta name="description" content="Dilip Kumar Yadav — AI/ML Engineer. NLP, LLM fine-tuning, RAG, LangChain, production ML systems. Resume & projects." />
+  <meta property="og:title" content="Dilip Kumar Yadav | AI/ML Engineer" />
+  <meta property="og:description" content="AI/ML Engineer. NLP, LLM fine-tuning (LoRA/QLoRA), RAG, LangChain, production systems on AWS & Docker." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-username.github.io/your-repo/" />
+  <meta property="og:image" content="/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- JSON-LD Person schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dilip Kumar Yadav",
+    "jobTitle": "AI/ML Engineer",
+    "url": "https://your-username.github.io/your-repo/",
+    "sameAs": ["https://github.com/your-username","https://www.linkedin.com/in/your-username"],
+    "email": "kumardilip218@gmail.com"
+  }
+  </script>
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- AOS for subtle reveals (optional) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <link rel="icon" href="/favicon.ico">
+
+  <style>
+    :root{
+      --bg:#0f1720; --card: rgba(255,255,255,0.03); --muted:#9aa4b2; --accent1:#ff6b6b; --accent2:#4ecdc4; --glass: rgba(255,255,255,0.03);
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--bg); color:#e6eef6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; scroll-behavior:smooth;
+    }
+
+    /* Top nav */
+    nav{position:sticky; top:0; backdrop-filter: blur(6px); background: linear-gradient(180deg, rgba(11,14,17,0.6), rgba(11,14,17,0.4)); border-bottom:1px solid rgba(255,255,255,0.03); z-index:999;}
+    .nav-inner{max-width:1100px; margin:0 auto; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700}
+    .brand .logo{height:40px; width:40px; border-radius:10px; background:linear-gradient(135deg,var(--accent1),var(--accent2)); display:inline-flex; align-items:center; justify-content:center; font-weight:800; color:#071117}
+    .nav-links{display:flex; gap:14px; align-items:center}
+    .nav-links a{color:var(--muted); text-decoration:none; font-weight:600; padding:8px 10px; border-radius:8px}
+    .nav-links a.active, .nav-links a:hover{color:#fff; background:rgba(255,255,255,0.03)}
+
+    /* Container */
+    .container{max-width:1100px; margin:28px auto; padding:0 20px}
+
+    /* HERO */
+    .hero{display:grid; grid-template-columns:1fr 360px; gap:28px; align-items:center}
+    .hero-card{padding:28px; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow: 0 8px 30px rgba(2,6,23,0.6)}
+    .headline{font-size:clamp(28px,4vw,44px); line-height:1.02; margin:0 0 12px; background:linear-gradient(90deg,var(--accent1),var(--accent2)); -webkit-background-clip:text; color:transparent}
+    .sub{color:var(--muted); margin-bottom:18px}
+
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{padding:10px 16px; border-radius:10px; border:none; cursor:pointer; font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),#f7b32b); color:#071117}
+    .btn-ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted)}
+
+    /* mini-stats */
+    .stats{display:flex; gap:12px; margin-top:14px}
+    .stat{padding:10px 12px; background:rgba(255,255,255,0.02); border-radius:10px; text-align:center}
+    .stat strong{display:block; font-size:1.05rem}
+
+    /* Profile card */
+    .profile{padding:18px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); display:flex; flex-direction:column; gap:12px}
+    .profile img{width:100%; border-radius:10px; object-fit:cover; height:240px}
+    .profile .meta{display:flex; justify-content:space-between; align-items:center}
+
+    /* Sections */
+    section.card{margin-top:18px; padding:22px; border-radius:12px; background:var(--card)}
+    section.card h2{margin:0 0 10px}
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+
+    /* Skills */
+    .skills-wrap{display:flex; gap:12px; flex-wrap:wrap}
+    .skill-pill{background:rgba(255,255,255,0.03); padding:6px 10px; border-radius:999px; font-weight:700; color:#fff}
+    .skill-bar{background:rgba(255,255,255,0.03); border-radius:12px; padding:8px}
+    .skill-bar .bar{height:10px; border-radius:8px; background:linear-gradient(90deg,var(--accent2),var(--accent1)); width:0%; transition:width 1s}
+    .skill-row{display:flex; justify-content:space-between; gap:12px; align-items:center}
+
+    /* Projects cards */
+    .projects-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px}
+    .project{padding:14px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow:0 6px 18px rgba(2,6,23,0.6); display:flex; flex-direction:column; gap:10px}
+    .project .meta{display:flex; justify-content:space-between; align-items:center}
+    .badges{display:flex; gap:8px; flex-wrap:wrap}
+    .badge{font-size:12px; padding:6px 8px; border-radius:8px; background:rgba(255,255,255,0.03); font-weight:700}
+
+    /* Contact */
+    .contact-row{display:flex; gap:18px; flex-direction:row}
+    .contact-form{flex:1}
+    .contact-info{width:320px; background:rgba(255,255,255,0.02); padding:14px; border-radius:10px}
+    input,textarea{width:100%; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit}
+
+    /* Footer */
+    footer{margin-top:28px; padding:28px 0; color:var(--muted); text-align:center}
+
+    /* small screens */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .contact-row{flex-direction:column}
+    }
+  </style>
 </head>
 <body>
-
-  <!-- NAVBAR -->
   <nav>
-    <div class="nav-container">
-      <div class="brand">
-        <div class="logo">DK</div>
-        <span>Dilip Kumar Yadav</span>
-      </div>
-      <div class="nav-links">
+    <div class="nav-inner">
+      <div class="brand"><div class="logo">DK</div><div>Dilip Kumar Yadav</div></div>
+      <div class="nav-links" id="navLinks">
         <a href="#summary">Summary</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-        <a href="resume.pdf" download class="btn">Download CV</a>
-        <button id="themeBtn">🌙</button>
+        <a href="/resume.pdf" download class="btn btn-ghost">Download CV</a>
+        <button id="themeBtn" class="btn btn-ghost">🌙</button>
       </div>
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>AI / ML Engineer · NLP Specialist · Data Scientist</h1>
-      <p>Results-driven AI/ML and NLP engineer building intelligent systems — from fine-tuning LLMs (LoRA/QLoRA) to developing agentic AI and RAG frameworks, deployed on AWS & Docker, with measurable performance improvements.</p>
-      <div class="cta-buttons">
-        <a href="#projects" class="btn primary">View Projects</a>
-        <a href="resume.pdf" download class="btn">Download Resume</a>
-        <a href="mailto:kumardilip218@gmail.com" class="btn">Contact</a>
+  <main class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-card" data-aos="fade-up">
+        <h1 class="headline">AI / ML Engineer · NLP · LLMs · Production ML</h1>
+        <p class="sub">I build intelligent systems — from fine-tuning LLMs (LoRA/QLoRA) to deploying agentic RAG pipelines in production. I focus on inference efficiency, interpretability (SHAP), and scalable architectures on AWS & Docker.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-ghost" href="/resume.pdf" download>📄 Download Resume</a>
+          <a class="btn btn-ghost" href="mailto:kumardilip218@gmail.com">✉️ Contact</a>
+        </div>
+
+        <div class="stats" aria-hidden>
+          <div class="stat"><strong>5+ yrs</strong><small>Experience</small></div>
+          <div class="stat"><strong>30–40%</strong><small>Perf improvements</small></div>
+          <div class="stat"><strong>10+</strong><small>Production Models</small></div>
+        </div>
+
+        <div style="margin-top:14px; color:var(--muted); font-size:0.95rem">Tech highlights: Python · PyTorch · Transformers · LangChain · LoRA · FAISS · AWS · Docker</div>
       </div>
-      <div class="stats">
-        <div><strong>5+ yrs</strong><span>Experience</span></div>
-        <div><strong>30–40%</strong><span>Perf Improvement</span></div>
-        <div><strong>10+</strong><span>Production Models</span></div>
-      </div>
+
+      <aside class="profile" data-aos="fade-left">
+        <img src="/profile.jpg" alt="Dilip Kumar Yadav — profile" loading="lazy" onerror="this.style.display='none'">
+        <div class="meta">
+          <div>
+            <div style="font-weight:800">Dilip Kumar Yadav</div>
+            <div style="color:var(--muted); font-size:0.95rem">AI/ML Engineer — NLP · LLMs</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:700">Gurgaon, India</div>
+            <div style="color:var(--muted); font-size:0.9rem">kumardilip218@gmail.com</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:10px; justify-content:space-between; margin-top:6px">
+          <a class="btn btn-ghost" href="https://github.com/your-username" target="_blank">GitHub</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/your-username" target="_blank">LinkedIn</a>
+        </div>
+      </aside>
     </div>
-    <aside class="profile-card">
-      <img src="assets/profile.jpg" alt="Dilip Kumar Yadav">
-      <div class="meta">
-        <span>Gurgaon, India</span>
-        <span>kumardilip218@gmail.com</span>
-      </div>
-      <div class="socials">
-        <a href="https://github.com/kumardilip218" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/kumardilip218/" target="_blank">LinkedIn</a>
-      </div>
-    </aside>
-  </header>
 
-  <!-- SUMMARY -->
-  <section id="summary" class="section">
-    <h2>💼 Professional Summary</h2>
-    <p>Results-driven AI/ML and NLP engineer with proven expertise in building scalable, intelligent systems using Machine Learning, Deep Learning, and Generative AI. Skilled in fine-tuning LLMs (LoRA, QLoRA), developing agentic AI and RAG frameworks using LangChain, LlamaIndex, Transformers, Hugging Face, and vector databases. Experienced in deploying production-grade solutions leveraging Python, SQL, MongoDB, Docker, AWS, and REST APIs. Delivered <strong>30–40% improvements</strong> in system performance by designing multimodal pipelines and optimizing inference workflows.</p>
-  </section>
+    <!-- SUMMARY (kept content intact) -->
+    <section id="summary" class="card" data-aos="fade-up">
+      <h2>💼 Professional Summary</h2>
+      <p>AI/ML engineer and NLP specialist with expertise in Machine Learning, Deep Learning, and Generative AI. Skilled in fine-tuning LLMs (LoRA, QLoRA), agentic AI, and RAG frameworks using LangChain, LlamaIndex, Transformers, Hugging Face, and vector DBs. Experienced in Python, SQL, MongoDB, Docker, AWS, and REST APIs. Delivered <strong>30–40% performance improvements</strong> through multimodal pipelines and inference optimization.</p>
+    </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="section">
-    <h2>🛠️ Skills</h2>
-    <div class="skills-grid">
-      <div>
-        <h3>Programming & Data Science</h3>
-        <div class="skills-pills">
-          <span>Python</span><span>SQL</span><span>Bash</span><span>R</span><span>MATLAB</span>
-          <span>Pandas</span><span>NumPy</span><span>SciPy</span><span>Scikit-learn</span><span>Matplotlib</span>
-          <span>Seaborn</span><span>Power BI</span><span>Tableau</span><span>Excel</span><span>Statistics</span>
-          <span>XGBoost</span><span>LightGBM</span><span>KNN</span><span>SVM</span><span>Linear & Logistic Regression</span>
-          <span>Random Forest</span>
+    <!-- SKILLS -->
+    <section id="skills" class="card" data-aos="fade-up">
+      <h2>🛠️ Skills</h2>
+      <div class="grid-2" style="margin-top:12px">
+        <div>
+          <h3>Programming & Data Science</h3>
+          <div class="skills-wrap" style="margin:10px 0">
+            <span class="skill-pill">Python</span><span class="skill-pill">SQL</span><span class="skill-pill">R</span><span class="skill-pill">MATLAB</span><span class="skill-pill">Pandas</span>
+          </div>
+
+          <div style="margin-top:10px">
+            <div class="skill-row"><div>Python</div><div>90%</div></div>
+            <div class="skill-bar" aria-hidden><div class="bar" data-width="90%"></div></div>
+            <div class="skill-row" style="margin-top:8px"><div>PyTorch</div><div>85%</div></div>
+            <div class="skill-bar" aria-hidden><div class="bar" data-width="85%"></div></div>
+            <div class="skill-row" style="margin-top:8px"><div>Transformers</div><div>80%</div></div>
+            <div class="skill-bar" aria-hidden><div class="bar" data-width="80%"></div></div>
+          </div>
+        </div>
+
+        <div>
+          <h3>AI, ML & NLP</h3>
+          <div class="skills-wrap" style="margin:10px 0">
+            <span class="skill-pill">TensorFlow</span><span class="skill-pill">PyTorch</span><span class="skill-pill">Keras</span><span class="skill-pill">Transformers</span>
+          </div>
+          <h3 style="margin-top:12px">Deployment & Cloud</h3>
+          <div class="skills-wrap" style="margin:10px 0">
+            <span class="skill-pill">Docker</span><span class="skill-pill">FastAPI</span><span class="skill-pill">Kubernetes</span><span class="skill-pill">AWS</span>
+          </div>
         </div>
       </div>
-      <div>
-        <h3>AI, ML & NLP</h3>
-        <div class="skills-pills">
-          <span>TensorFlow</span><span>PyTorch</span><span>Keras</span><span>Hugging Face</span><span>Transformers</span>
-          <span>LangChain</span><span>LlamaIndex</span><span>LoRA</span><span>QLoRA</span><span>Agentic AI</span>
-          <span>RAG</span><span>Flowise AI</span><span>Dify</span><span>n8n</span><span>CrewAI</span>
-          <span>NLTK</span><span>SpaCy</span><span>TextBlob</span><span>NER</span><span>Topic Modeling</span>
-          <span>Prompt Engineering & Evaluation</span>
+    </section>
+
+    <!-- Experience (keeps the original items but presented as timeline) -->
+    <section id="experience" class="card" data-aos="fade-up">
+      <h2>💼 Work Experience</h2>
+      <div style="margin-top:12px; display:flex; flex-direction:column; gap:12px">
+
+        <article style="padding:14px; border-radius:10px; background:rgba(255,255,255,0.02);">
+          <div style="display:flex; justify-content:space-between; gap:12px; align-items:center">
+            <div>
+              <div style="font-weight:800">ZKteco Pvt Ltd</div>
+              <div style="color:var(--muted)">Data Scientist – AI | Mar 2025 – Present</div>
+            </div>
+            <div style="color:var(--muted); font-size:0.9rem">Precision@K=0.91 · Recall@K=0.87</div>
+          </div>
+          <ul style="margin-top:8px">
+            <li>Agentic AI platform for tariff classification and duty calculation using LangChain, FAISS, Hugging Face LLMs.</li>
+            <li>LoRA/QLoRA/PEFT fine-tuning; AWS S3/EC2/ECS/ECR deployment; monitoring dashboards.</li>
+            <li>60% workload reduction, 2.3x faster approvals.</li>
+          </ul>
+        </article>
+
+        <article style="padding:14px; border-radius:10px; background:rgba(255,255,255,0.02);">
+          <div style="display:flex; justify-content:space-between; gap:12px; align-items:center">
+            <div>
+              <div style="font-weight:800">K&S Partners</div>
+              <div style="color:var(--muted)">AI/ML Engineer | Nov 2024 – Feb 2025</div>
+            </div>
+            <div style="color:var(--muted); font-size:0.9rem">BLEU=0.79 · ROUGE-L=0.76</div>
+          </div>
+          <ul style="margin-top:8px">
+            <li>OCR–LLM system for legal document intelligence (pdfplumber, OpenCV, Tesseract, Camelot).</li>
+            <li>Interactive Q&A via LlamaIndex + OpenAI embeddings; reduced manual review 75%.</li>
+          </ul>
+        </article>
+
+        <article style="padding:14px; border-radius:10px; background:rgba(255,255,255,0.02);">
+          <div style="display:flex; justify-content:space-between; gap:12px; align-items:center">
+            <div>
+              <div style="font-weight:800">InnoSolve Solutions Pvt Ltd</div>
+              <div style="color:var(--muted)">Data Scientist | Nov 2021 – Oct 2024</div>
+            </div>
+            <div style="color:var(--muted); font-size:0.9rem">Accuracy=88% · F1=0.91</div>
+          </div>
+          <ul style="margin-top:8px">
+            <li>Multi-PDF chatbot with Anthropic Claude LLM, Titan embeddings, FAISS; AWS Bedrock/Lambda/S3 deployment.</li>
+            <li>Random Forest compliance model; SHAP explainability; reduced financial exposure 42%.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Projects: cards with badges + links (keeps your project content intact) -->
+    <section id="projects" class="card" data-aos="fade-up">
+      <h2>🚀 Projects</h2>
+      <div style="margin-top:12px" class="projects-grid">
+
+        <div class="project" data-aos="zoom-in">
+          <div class="meta"><div style="font-weight:800">Conversational Voice AI Assistant</div><div style="color:var(--muted); font-size:0.9rem">Whisper · LoRA · FastAPI · Docker</div></div>
+          <p>Whisper STT + pyttsx3/gTTS TTS, FastAPI, Docker, AWS ECS/Lambda; LoRA fine-tuning, 94% STT accuracy.</p>
+          <div class="badges"><span class="badge">Whisper</span><span class="badge">FastAPI</span><span class="badge">LoRA</span></div>
+          <div style="display:flex; gap:8px; margin-top:8px">
+            <a class="btn btn-ghost" href="#">🔗 GitHub</a>
+            <a class="btn btn-ghost" href="#">🔗 Live</a>
+          </div>
         </div>
-        <h3>MLOps, Deployment & Tools</h3>
-        <div class="skills-pills">
-          <span>Docker</span><span>Kubernetes</span><span>Flask</span><span>FastAPI</span><span>REST APIs</span>
-          <span>GraphQL</span><span>Apollo Client</span><span>Git & GitHub</span><span>CI/CD</span><span>Model Deployment</span>
-          <span>Model Monitoring</span><span>AI Automation</span>
+
+        <div class="project" data-aos="zoom-in">
+          <div class="meta"><div style="font-weight:800">Credit Card Fraud Detection</div><div style="color:var(--muted); font-size:0.9rem">XGBoost · SHAP · AWS</div></div>
+          <p>XGBoost, SMOTE, SHAP, FastAPI + AWS Lambda; 96% precision, 94% recall.</p>
+          <div class="badges"><span class="badge">XGBoost</span><span class="badge">SHAP</span><span class="badge">AWS</span></div>
+          <div style="display:flex; gap:8px; margin-top:8px">
+            <a class="btn btn-ghost" href="#">🔗 GitHub</a>
+            <a class="btn btn-ghost" href="#">🔗 Live</a>
+          </div>
         </div>
-        <h3>Cloud & Databases</h3>
-        <div class="skills-pills">
-          <span>AWS (S3, EC2, ECS/ECR, Lambda, SageMaker)</span><span>MongoDB</span><span>PostgreSQL</span>
-          <span>MySQL</span><span>Snowflake</span><span>Neo4j (GraphDB)</span>
+
+        <div class="project" data-aos="zoom-in">
+          <div class="meta"><div style="font-weight:800">AI-Powered Recommendation System</div><div style="color:var(--muted); font-size:0.9rem">Collaborative · LoRA</div></div>
+          <p>Collaborative & content filtering, KNN, Matrix Factorization, LoRA fine-tuning; 85% accuracy, 92% precision.</p>
+          <div class="badges"><span class="badge">KNN</span><span class="badge">Matrix Factorization</span></div>
+          <div style="display:flex; gap:8px; margin-top:8px">
+            <a class="btn btn-ghost" href="#">🔗 GitHub</a>
+            <a class="btn btn-ghost" href="#">🔗 Live</a>
+          </div>
         </div>
+
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section">
-    <h2>💼 Work Experience</h2>
-    <div class="experience-timeline">
-      <article>
-        <h3>ZKteco Pvt Ltd | Data Scientist – Artificial Intelligence</h3>
-        <span>Mar 2025 – Present | Precision@K=0.91 · Recall@K=0.87 · MMR=0.82</span>
-        <ul>
-          <li>Engineered an Agentic AI platform automating tariff classification, declaration validation, duty rate calculation, and goods valuation using LangChain, FAISS, Hugging Face LLMs, MiniLM embeddings.</li>
-          <li>Fine-tuned via LoRA, QLoRA, PEFT, CoT, RLHF; deployed on AWS S3, EC2, ECS/ECR with monitoring dashboards.</li>
-          <li>Delivered 32% lower perplexity, cutting manual clearance workload by ~60%, accelerating approvals 2.3x, and strengthening audit readiness.</li>
-        </ul>
-      </article>
+    <!-- Contact: form + info (Formspree example) -->
+    <section id="contact" class="card" data-aos="fade-up">
+      <h2>📬 Contact</h2>
+      <div class="contact-row" style="margin-top:12px">
+        <form class="contact-form" action="https://formspree.io/f/{YOUR_FORM_ID}" method="POST">
+          <label>Name</label>
+          <input type="text" name="name" required>
+          <label style="margin-top:8px">Email</label>
+          <input type="email" name="email" required>
+          <label style="margin-top:8px">Message</label>
+          <textarea name="message" rows="6" required></textarea>
+          <div style="margin-top:10px; display:flex; gap:8px">
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <a class="btn btn-ghost" href="mailto:kumardilip218@gmail.com">Or email directly</a>
+          </div>
+        </form>
 
-      <article>
-        <h3>K&S Partners | AI/ML Engineer (Consultant)</h3>
-        <span>Nov 2024 – Feb 2025 | BLEU=0.79 · ROUGE-L=0.76</span>
-        <ul>
-          <li>Engineered OCR–LLM system for legal document intelligence, extracting structured, unstructured, and tabular data using pdfplumber, OpenCV, Tesseract, and Camelot.</li>
-          <li>Designed JSON pipelines with OpenAI ada-002 embeddings, Pinecone indexing, and interactive Q&A chatbot via LlamaIndex + OpenAI LLMs.</li>
-          <li>Optimized with prompt engineering and LoRA/QLoRA fine-tuning; 45% latency reduction, 28% lower perplexity, reduced manual review by 75% and boosted efficiency by 58%.</li>
-        </ul>
-      </article>
-
-      <article>
-        <h3>InnoSolve Solutions Pvt Ltd | Data Scientist</h3>
-        <span>Nov 2021 – Oct 2024 | Accuracy=88% · Precision=0.88 · Recall=0.94 · F1=0.91 · AUC-ROC=0.94</span>
-        <ul>
-          <li>Developed enterprise-scale multi-PDF chatbot leveraging Anthropic Claude LLM, Titan embeddings, FAISS vector DB; deployed on AWS Bedrock, Lambda, and S3 with autoscaling and CI/CD.</li>
-          <li>Built production-grade Random Forest model to detect undeclared goods and valuation anomalies with feature engineering, hyperparameter tuning, cross-validation, and SHAP explainability; reduced financial exposure by 42%.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <h2>🚀 Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>Conversational Voice AI Assistant</h3>
-        <p>Built voice-enabled assistant using OpenAI Whisper (STT) and pyttsx3/gTTS (TTS), integrated with LLMs for contextual queries. Deployed via FastAPI microservice, Docker, and AWS ECS + Lambda; LoRA fine-tuning; ~94% STT accuracy.</p>
+        <aside class="contact-info">
+          <div style="font-weight:800">Get in touch</div>
+          <div style="color:var(--muted); margin-top:8px">Email: <a href="mailto:kumardilip218@gmail.com">kumardilip218@gmail.com</a></div>
+          <div style="color:var(--muted); margin-top:6px">Phone: +91-7905618273</div>
+          <div style="color:var(--muted); margin-top:6px">Address: 35/59, U Block, DLF Phase 3, Gurgaon, Haryana</div>
+          <div style="margin-top:12px; display:flex; gap:8px">
+            <a class="btn btn-ghost" href="https://github.com/your-username" target="_blank">GitHub</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/your-username" target="_blank">LinkedIn</a>
+            <a class="btn btn-ghost" href="https://malika-jai.github.io/" target="_blank">Portfolio</a>
+          </div>
+        </aside>
       </div>
-      <div class="project-card">
-        <h3>Credit Card Fraud Detection with Explainable AI</h3>
-        <p>XGBoost-based model on imbalanced dataset using SMOTE and SHAP; FastAPI service deployed on AWS Lambda with automated batch scoring. Achieved 96% precision and 94% recall.</p>
-      </div>
-      <div class="project-card">
-        <h3>AI-Powered Recommendation System</h3>
-        <p>Collaborative and content-based filtering using KNN + Matrix Factorization, integrated user behavior and item features. LoRA fine-tuning; 85% accuracy, 92% precision.</p>
-      </div>
-      <div class="project-card">
-        <h3>Predictive Maintenance for Industrial Equipment</h3>
-        <p>Multivariate LSTM-based system on real-time sensor data; full MLOps pipeline with FastAPI, Docker, AWS ECS/ECR and S3 storage; 93% classification accuracy and 35% reduction in unplanned downtimes.</p>
-      </div>
-      <div class="project-card">
-        <h3>Sentiment Analysis Using NLP & ML</h3>
-        <p>Pipeline using NLTK, Scikit-learn, and TensorFlow; REST API deployed via Docker and AWS; achieved 91% accuracy on 10K+ social media texts.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <h2>📬 Contact</h2>
-    <form action="https://formspree.io/f/{YOUR_FORM_ID}" method="POST">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <textarea name="message" rows="6" placeholder="Message" required></textarea>
-      <button type="submit" class="btn primary">Send Message</button>
-    </form>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:kumardilip218@gmail.com">kumardilip218@gmail.com</a></p>
-      <p>Phone: +91-7905618273</p>
-      <p>Address: 35/59, U Block, DLF Phase 3, Gurgaon, Haryana</p>
-    </div>
-  </section>
+    <footer>
+      © 2025 Dilip Kumar Yadav · Built with ❤️ · Hosted on GitHub Pages
+    </footer>
 
-  <footer>
-    © 2025 Dilip Kumar Yadav · Built with ❤️ · Hosted on GitHub Pages
-  </footer>
+  </main>
 
-  <script src="script.js"></script>
+  <!-- Scripts: AOS, small interactions -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({duration:700, once:true});
+
+    // Theme toggle: remember preference
+    const themeBtn = document.getElementById('themeBtn');
+    const root = document.documentElement;
+    const stored = localStorage.getItem('theme');
+    if(stored==='light') document.body.style.background='#f5f5f5', document.body.style.color='#111';
+
+    themeBtn.addEventListener('click', ()=>{
+      if(document.body.style.background==='rgb(245, 245, 245)' || document.body.style.background==='rgb(245,245,245)'){
+        // switch to dark
+        document.body.style.background='var(--bg)'; document.body.style.color='#e6eef6'; themeBtn.textContent='🌙'; localStorage.setItem('theme','dark');
+      } else {
+        document.body.style.background='#f5f5f5'; document.body.style.color='#111'; themeBtn.textContent='☀️'; localStorage.setItem('theme','light');
+      }
+    });
+
+    // Animate skill bars on enter
+    const bars = document.querySelectorAll('.bar');
+    const obs = new IntersectionObserver(entries =>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          bars.forEach(b=> b.style.width = b.getAttribute('data-width'));
+        }
+      })
+    }, {threshold:0.3});
+    obs.observe(document.querySelector('#skills'));
+
+    // Scroll spy active link
+    const sections = document.querySelectorAll('main section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const spy = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        const id = e.target.id;
+        const link = document.querySelector('.nav-links a[href="#'+id+'"]');
+        if(e.isIntersecting){ navLinks.forEach(l=> l.classList.remove('active')); if(link) link.classList.add('active'); }
+      })
+    }, {rootMargin:'-40% 0px -40% 0px'});
+    sections.forEach(s=> spy.observe(s));
+
+    // Smooth fallback for older browsers: highlight clicked link
+    document.querySelectorAll('.nav-links a').forEach(a=> a.addEventListener('click', ()=>{ document.querySelectorAll('.nav-links a').forEach(x=>x.classList.remove('active')); a.classList.add('active'); }));
+
+  </script>
 </body>
 </html>
