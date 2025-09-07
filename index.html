@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dilip Kumar Yadav | AI/ML & NLP Engineer</title>
+  <title>Dilip Kumar Yadav | AI/ML & NLP Visionary</title>
 
   <!-- SEO / Social -->
-  <meta name="description" content="Dilip Kumar Yadav — Expert AI/ML Engineer specializing in NLP, GenAI, Agentic AI, LLM fine-tuning, and scalable systems with PyTorch, LangChain, AWS, and Docker." />
-  <meta name="keywords" content="AI, ML, NLP, GenAI, Agentic AI, LLMs, LoRA, QLoRA, LangChain, PyTorch, AWS, Docker, Data Science" />
-  <meta property="og:title" content="Dilip Kumar Yadav | AI/ML & NLP Engineer" />
-  <meta property="og:description" content="Building cutting-edge AI systems for NLP, GenAI, and Agentic AI. Explore my projects and expertise." />
+  <meta name="description" content="Dilip Kumar Yadav — World-class AI/ML Engineer specializing in NLP, GenAI, Agentic AI, and scalable systems with PyTorch, LangChain, AWS, and Docker." />
+  <meta name="keywords" content="AI, ML, NLP, GenAI, Agentic AI, LLMs, LoRA, QLoRA, LangChain, PyTorch, AWS, Docker, Data Science, Machine Learning" />
+  <meta property="og:title" content="Dilip Kumar Yadav | AI/ML & NLP Visionary" />
+  <meta property="og:description" content="Pioneering intelligent systems for NLP, GenAI, and Agentic AI. Explore my groundbreaking projects and expertise." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dilipkumaryadav.github.io/portfolio/" />
   <meta property="og:image" content="/og-image.png" />
@@ -38,7 +38,7 @@
 
   <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;600;700;800&family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- AOS for animations -->
@@ -48,22 +48,22 @@
 
   <style>
     :root {
-      --bg: #0a0e17;
-      --text: #e0e7ff;
-      --bg-light: #f8fafc;
-      --text-light: #1e293b;
-      --card: rgba(255,255,255,0.05);
-      --muted: #94a3b8;
-      --primary: #00d4ff;
-      --secondary: #ff2e63;
-      --accent: #ffeb3b;
-      --glass: rgba(255,255,255,0.08);
+      --bg: #080c15;
+      --text: #e6e9ff;
+      --bg-light: #f9fafb;
+      --text-light: #1a202c;
+      --card: rgba(255,255,255,0.06);
+      --muted: #a0aec0;
+      --primary: #00e7ff;
+      --secondary: #ff0055;
+      --accent: #ffcc00;
       --neon: #39ff14;
+      --glass: rgba(255,255,255,0.1);
     }
     html, body { height: 100%; }
     body {
       margin: 0;
-      font-family: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      font-family: 'Geist', 'Poppins', 'Inter', system-ui, -apple-system, Arial;
       background: var(--bg);
       color: var(--text);
       -webkit-font-smoothing: antialiased;
@@ -72,6 +72,22 @@
       position: relative;
       overflow-x: hidden;
     }
+
+    /* Custom Cursor */
+    body { cursor: none; }
+    .cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--primary) 20%, transparent);
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease, background 0.3s ease;
+    }
+    .cursor.hovered { transform: scale(1.5); background: radial-gradient(circle, var(--secondary) 20%, transparent); }
+    body.neon .cursor { background: radial-gradient(circle, var(--neon) 20%, transparent); }
+    body.neon .cursor.hovered { background: radial-gradient(circle, var(--secondary) 20%, transparent); }
 
     /* Preloader */
     .preloader {
@@ -85,16 +101,17 @@
       align-items: center;
       justify-content: center;
       z-index: 2000;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.6s ease;
     }
     .preloader.hidden { opacity: 0; pointer-events: none; }
     .preloader .spinner {
-      width: 50px;
-      height: 50px;
-      border: 5px solid var(--primary);
-      border-top: 5px solid var(--secondary);
+      width: 60px;
+      height: 60px;
+      border: 6px solid transparent;
+      border-top: 6px solid var(--primary);
+      border-right: 6px solid var(--secondary);
       border-radius: 50%;
-      animation: spin 1s linear infinite;
+      animation: spin 1.2s ease-in-out infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -102,33 +119,34 @@
     nav {
       position: sticky;
       top: 0;
-      backdrop-filter: blur(12px);
-      background: linear-gradient(180deg, rgba(10,14,23,0.9), rgba(10,14,23,0.7));
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(15px);
+      background: linear-gradient(180deg, rgba(8,12,21,0.95), rgba(8,12,21,0.8));
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(90deg, var(--primary), var(--secondary)) 1;
       z-index: 1000;
-      transition: box-shadow 0.3s ease;
+      transition: all 0.3s ease;
     }
-    nav.scrolled { box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    nav.scrolled { padding: 10px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
     .nav-inner {
-      max-width: 1280px;
+      max-width: 1320px;
       margin: 0 auto;
-      padding: 20px 24px;
+      padding: 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
     }
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      font-size: 1.4rem;
-      letter-spacing: 0.5px;
+      gap: 16px;
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: 0.8px;
     }
     .brand .logo {
-      height: 56px;
-      width: 56px;
+      height: 60px;
+      width: 60px;
       border-radius: 16px;
       background: linear-gradient(135deg, var(--secondary), var(--primary));
       display: inline-flex;
@@ -136,32 +154,34 @@
       justify-content: center;
       font-weight: 800;
       color: #fff;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .brand .logo:hover { transform: scale(1.1); }
+    .brand .logo:hover { transform: scale(1.15); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 28px;
       align-items: center;
     }
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
       font-weight: 600;
-      padding: 12px 16px;
+      padding: 12px 18px;
       border-radius: 12px;
       transition: all 0.3s ease;
       position: relative;
+      font-size: 1.05rem;
     }
     .nav-links a:hover {
       color: var(--primary);
       background: var(--glass);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
     .nav-links a.active {
       color: var(--primary);
       background: var(--glass);
+      box-shadow: 0 4px 12px rgba(0,231,255,0.2);
     }
     .nav-links a::after {
       content: '';
@@ -169,85 +189,79 @@
       bottom: 0;
       left: 50%;
       width: 0;
-      height: 2px;
-      background: var(--primary);
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       transition: width 0.3s ease, left 0.3s ease;
     }
     .nav-links a:hover::after, .nav-links a.active::after {
-      width: 50%;
-      left: 25%;
+      width: 60%;
+      left: 20%;
     }
 
     /* Container */
-    .container { max-width: 1280px; margin: 48px auto; padding: 0 24px; }
+    .container { max-width: 1320px; margin: 56px auto; padding: 0 24px; }
 
     /* Hero */
     .hero {
       display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 48px;
+      grid-template-columns: 1fr 440px;
+      gap: 56px;
       align-items: center;
-      margin-bottom: 80px;
+      margin-bottom: 96px;
       position: relative;
       overflow: hidden;
     }
-    .hero::before {
-      content: '';
+    #particles-js {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 30% 30%, rgba(0,212,255,0.2), transparent 70%);
       z-index: -1;
-      animation: pulse 10s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.2; }
-      50% { transform: scale(1.2); opacity: 0.3; }
-      100% { transform: scale(1); opacity: 0.2; }
     }
     .hero-card {
-      padding: 48px;
-      border-radius: 24px;
+      padding: 56px;
+      border-radius: 28px;
       background: var(--glass);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
-    .hero-card:hover { transform: translateY(-8px); box-shadow: 0 16px 50px rgba(0,0,0,0.5); }
+    .hero-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
     .headline {
-      font-size: clamp(36px, 6vw, 60px);
+      font-size: clamp(40px, 7vw, 64px);
       line-height: 1.1;
-      margin: 0 0 20px;
+      margin: 0 0 24px;
       background: linear-gradient(90deg, var(--secondary), var(--primary));
       -webkit-background-clip: text;
       color: transparent;
       font-weight: 800;
+      letter-spacing: -0.5px;
     }
     .sub {
       color: var(--muted);
-      margin-bottom: 28px;
-      font-size: 1.2rem;
-      line-height: 1.6;
+      margin-bottom: 32px;
+      font-size: 1.3rem;
+      line-height: 1.7;
     }
 
-    .cta-row { display: flex; gap: 20px; flex-wrap: wrap; }
+    .cta-row { display: flex; gap: 24px; flex-wrap: wrap; }
     .btn {
-      padding: 14px 24px;
-      border-radius: 12px;
+      padding: 16px 28px;
+      border-radius: 14px;
       border: none;
       cursor: pointer;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.1rem;
       transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      backdrop-filter: blur(10px);
     }
     .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     }
     .btn-primary {
       background: linear-gradient(90deg, var(--secondary), var(--primary));
@@ -255,31 +269,31 @@
     }
     .btn-ghost {
       background: var(--glass);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.15);
       color: var(--text);
-      backdrop-filter: blur(10px);
     }
 
     /* Stats */
     .stats {
       display: flex;
-      gap: 20px;
-      margin-top: 24px;
+      gap: 24px;
+      margin-top: 28px;
       flex-wrap: wrap;
     }
     .stat {
-      padding: 16px 20px;
+      padding: 20px 24px;
       background: var(--glass);
-      border-radius: 12px;
+      border-radius: 14px;
       text-align: center;
       transition: transform 0.3s ease;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      min-width: 120px;
     }
-    .stat:hover { transform: scale(1.08); }
+    .stat:hover { transform: scale(1.1); }
     .stat strong {
       display: block;
-      font-size: 1.3rem;
-      font-weight: 700;
+      font-size: 1.4rem;
+      font-weight: 800;
       background: linear-gradient(90deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       color: transparent;
@@ -287,67 +301,67 @@
 
     /* Profile */
     .profile {
-      padding: 28px;
-      border-radius: 20px;
+      padding: 32px;
+      border-radius: 24px;
       background: var(--glass);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.5);
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      transition: transform 0.3s ease;
+      gap: 24px;
+      transition: transform 0.4s ease;
       position: sticky;
-      top: 100px;
+      top: 120px;
     }
-    .profile:hover { transform: translateY(-8px); }
+    .profile:hover { transform: translateY(-10px); }
     .profile-img-container { position: relative; }
     .profile img {
       width: 100%;
-      border-radius: 16px;
+      border-radius: 20px;
       object-fit: cover;
-      height: 320px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease;
+      height: 360px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      transition: transform 0.4s ease;
     }
-    .profile img:hover { transform: scale(1.05); }
+    .profile img:hover { transform: scale(1.08); }
     .img-fallback {
       display: none;
       width: 100%;
-      height: 320px;
-      border-radius: 16px;
+      height: 360px;
+      border-radius: 20px;
       background: linear-gradient(135deg, var(--secondary), var(--primary));
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
       font-weight: 800;
-      font-size: 3rem;
+      font-size: 3.5rem;
     }
     .profile .meta {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
 
     /* Sections */
     section.card {
-      margin-top: 48px;
-      padding: 40px;
-      border-radius: 20px;
+      margin-top: 56px;
+      padding: 48px;
+      border-radius: 24px;
       background: var(--glass);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+      transition: transform 0.4s ease;
     }
-    section.card:hover { transform: translateY(-8px); }
+    section.card:hover { transform: translateY(-10px); }
     section.card h2 {
-      margin: 0 0 20px;
-      font-size: 2.5rem;
-      font-weight: 700;
+      margin: 0 0 24px;
+      font-size: 2.8rem;
+      font-weight: 800;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
       background: linear-gradient(90deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       color: transparent;
@@ -355,66 +369,74 @@
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      gap: 32px;
     }
 
     /* Skills */
     .skills-wrap {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
     }
     .skill-pill {
       background: var(--glass);
-      padding: 10px 16px;
+      padding: 12px 20px;
       border-radius: 999px;
       font-weight: 600;
       color: var(--text);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+      backdrop-filter: blur(12px);
       position: relative;
+      animation: float 6s ease-in-out infinite;
     }
     .skill-pill:hover {
       background: linear-gradient(90deg, var(--primary), var(--secondary));
-      transform: translateY(-2px);
       color: #fff;
+      transform: scale(1.2) translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
     .skill-bar {
-      background: rgba(255,255,255,0.06);
-      border-radius: 12px;
-      padding: 8px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 10px;
       position: relative;
     }
     .skill-bar .bar {
-      height: 14px;
-      border-radius: 8px;
+      height: 16px;
+      border-radius: 10px;
       background: linear-gradient(90deg, var(--primary), var(--secondary));
       width: 0%;
-      transition: width 1.5s ease-in-out;
+      transition: width 1.8s ease-out-cubic;
       position: relative;
     }
     .skill-bar .bar::after {
       content: attr(data-tooltip);
       position: absolute;
-      top: -30px;
+      top: -35px;
       right: 0;
       background: var(--glass);
       color: var(--text);
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-size: 0.9rem;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.95rem;
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
+      backdrop-filter: blur(10px);
     }
     .skill-bar:hover .bar::after { opacity: 1; }
     .skill-row {
       display: flex;
       justify-content: space-between;
-      gap: 14px;
+      gap: 16px;
       align-items: center;
-      font-size: 1.1rem;
-      margin-bottom: 8px;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
     }
     .sr-only {
       position: absolute;
@@ -430,151 +452,220 @@
     /* Timeline (Work Experience) */
     .timeline {
       position: relative;
-      padding-left: 40px;
+      padding-left: 48px;
+      margin-top: 24px;
     }
     .timeline::before {
       content: '';
       position: absolute;
-      left: 20px;
+      left: 24px;
       top: 0;
-      bottom: 0;
-      width: 4px;
+      height: 0;
+      width: 5px;
       background: linear-gradient(var(--primary), var(--secondary));
-      border-radius: 4px;
+      border-radius: 5px;
+      transition: height 1.5s ease-out;
     }
+    .timeline.visible::before { height: 100%; }
     .timeline article {
       position: relative;
-      margin-bottom: 24px;
-      padding: 20px;
-      border-radius: 16px;
+      margin-bottom: 32px;
+      padding: 24px;
+      border-radius: 20px;
       background: var(--glass);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      transition: transform 0.4s ease;
     }
-    .timeline article:hover { transform: translateX(10px); }
+    .timeline article:hover { transform: translateX(15px); }
     .timeline article::before {
       content: '';
       position: absolute;
-      left: -36px;
-      top: 20px;
-      width: 16px;
-      height: 16px;
+      left: -44px;
+      top: 24px;
+      width: 20px;
+      height: 20px;
       background: var(--primary);
       border-radius: 50%;
-      border: 3px solid var(--bg);
+      border: 4px solid var(--bg);
+      box-shadow: 0 0 10px rgba(0,231,255,0.5);
     }
 
     /* Projects */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
     }
     .project {
-      padding: 24px;
-      border-radius: 16px;
+      padding: 28px;
+      border-radius: 20px;
       background: var(--glass);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      transition: all 0.3s ease;
+      gap: 20px;
+      transition: all 0.4s ease;
       position: relative;
     }
     .project:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+      transform: translateY(-12px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.6);
+    }
+    .project.featured::after {
+      content: 'Featured';
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--accent);
+      color: #1a202c;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 700;
     }
     .project .meta {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
     .badges {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       flex-wrap: wrap;
     }
     .badge {
-      font-size: 0.95rem;
-      padding: 8px 12px;
-      border-radius: 8px;
+      font-size: 1rem;
+      padding: 10px 14px;
+      border-radius: 10px;
       background: var(--glass);
       font-weight: 600;
       transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
     }
     .badge:hover {
       background: var(--primary);
       color: #fff;
+      transform: scale(1.1);
     }
     .project-metrics {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 20px;
+      right: 20px;
       background: var(--glass);
-      padding: 8px 12px;
-      border-radius: 8px;
+      padding: 10px 14px;
+      border-radius: 10px;
       opacity: 0;
       transform: translateY(10px);
       transition: all 0.3s ease;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--text);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
     }
     .project:hover .project-metrics { opacity: 1; transform: translateY(0); }
+    .project-preview {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      z-index: 10;
+    }
+    .project:hover .project-preview { opacity: 1; }
+    .project-preview img {
+      max-width: 80%;
+      max-height: 80%;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
 
     /* Contact */
     .contact-row {
       display: flex;
-      gap: 28px;
+      gap: 32px;
       flex-direction: row;
     }
     .contact-form {
       flex: 1;
       background: var(--glass);
-      padding: 24px;
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
+      padding: 32px;
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
     }
-    .contact-info {
-      width: 400px;
-      background: var(--glass);
-      padding: 24px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      backdrop-filter: blur(10px);
+    .contact-form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
     }
-    input, textarea {
+    .contact-form input, .contact-form textarea {
       width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: transparent;
-      color: inherit;
+      padding: 16px;
+      border-radius: 12px;
+      border: 2px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
       transition: all 0.3s ease;
       font-family: 'Inter', sans-serif;
+      box-sizing: border-box;
     }
-    input:focus, textarea:focus {
+    .contact-form input:focus, .contact-form textarea:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 8px rgba(0,212,255,0.3);
+      box-shadow: 0 0 10px rgba(0,231,255,0.4);
+      background: rgba(255,255,255,0.1);
       outline: none;
     }
-    input:invalid:focus, textarea:invalid:focus {
+    .contact-form input:invalid:focus, .contact-form textarea:invalid:focus {
       border-color: var(--secondary);
-      box-shadow: 0 0 8px rgba(255,46,99,0.3);
+      box-shadow: 0 0 10px rgba(255,0,85,0.4);
     }
+    .contact-info {
+      width: 440px;
+      background: var(--glass);
+      padding: 32px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      backdrop-filter: blur(15px);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding-bottom: 16px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) var(--bg);
+    }
+    .testimonial {
+      flex: 0 0 300px;
+      padding: 24px;
+      border-radius: 16px;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+    .testimonial:hover { transform: translateY(-8px); }
 
     /* Back to Top */
     .back-to-top {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
+      bottom: 40px;
+      right: 40px;
       background: linear-gradient(90deg, var(--primary), var(--secondary));
       color: #fff;
-      padding: 14px;
+      padding: 16px;
       border-radius: 50%;
       cursor: pointer;
       display: none;
@@ -582,79 +673,83 @@
       transition: all 0.3s ease;
     }
     .back-to-top:hover {
-      transform: scale(1.2);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transform: scale(1.3);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
 
     /* Footer */
     footer {
-      margin-top: 80px;
-      padding: 48px 0;
+      margin-top: 96px;
+      padding: 56px 0;
       color: var(--muted);
       text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.1);
       background: var(--glass);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(15px);
+      border-top: 2px solid rgba(255,255,255,0.15);
     }
     .ai-insights {
-      margin-top: 16px;
+      margin-top: 20px;
       display: flex;
       justify-content: center;
-      gap: 16px;
+      gap: 20px;
     }
     .ai-insights a {
       color: var(--primary);
-      font-weight: 600;
+      font-weight: 700;
       transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .ai-insights a:hover { color: var(--secondary); transform: translateY(-2px); }
+    .ai-insights a:hover { color: var(--secondary); transform: translateY(-3px); }
 
     /* Theme Modes */
     body.light {
       --bg: var(--bg-light);
       --text: var(--text-light);
-      --card: rgba(0,0,0,0.05);
-      --muted: #4b5563;
-      --glass: rgba(0,0,0,0.05);
+      --card: rgba(0,0,0,0.06);
+      --muted: #4a5568;
+      --glass: rgba(0,0,0,0.1);
     }
     body.neon {
-      --bg: #0a0e17;
-      --text: #e0e7ff;
-      --card: rgba(57,255,20,0.1);
-      --muted: #94a3b8;
-      --glass: rgba(57,255,20,0.1);
+      --bg: #080c15;
+      --text: #e6e9ff;
+      --card: rgba(57,255,20,0.12);
+      --muted: #a0aec0;
+      --glass: rgba(57,255,20,0.12);
       --primary: #39ff14;
-      --secondary: #ff2e63;
+      --secondary: #ff0055;
     }
     body.light .btn-primary, body.neon .btn-primary { color: #fff; }
     body.light .logo, body.neon .logo { color: #fff; }
-    body.light nav, body.neon nav { background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)); }
-    body.light .skill-bar, body.neon .skill-bar { background: rgba(0,0,0,0.06); }
-    body.light .badge, body.neon .badge { background: rgba(0,0,0,0.06); }
-    body.light .hero::before, body.neon .hero::before { background: radial-gradient(circle at 30% 30%, rgba(0,212,255,0.1), transparent 70%); }
+    body.light nav, body.neon nav { background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85)); }
+    body.light .skill-bar, body.neon .skill-bar { background: rgba(0,0,0,0.08); }
+    body.light .badge, body.neon .badge { background: rgba(0,0,0,0.08); }
 
     /* Responsive */
-    @media (max-width: 1000px) {
-      .hero { grid-template-columns: 1fr; gap: 40px; }
+    @media (max-width: 1100px) {
+      .hero { grid-template-columns: 1fr; gap: 48px; }
       .contact-row { flex-direction: column; }
       .contact-info { width: 100%; }
       .projects-grid { grid-template-columns: 1fr; }
       .grid-2 { grid-template-columns: 1fr; }
-      .nav-links { gap: 12px; }
-      .nav-links a { padding: 10px 12px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { padding: 10px 14px; }
       .profile { position: static; }
     }
     @media (max-width: 600px) {
-      .headline { font-size: clamp(28px, 5vw, 40px); }
-      .hero-card, .profile, .contact-form, .contact-info { padding: 24px; }
-      .btn { padding: 12px 20px; }
-      section.card { padding: 24px; }
+      .headline { font-size: clamp(32px, 6vw, 48px); }
+      .hero-card, .profile, .contact-form, .contact-info { padding: 28px; }
+      .btn { padding: 14px 24px; }
+      section.card { padding: 28px; }
+      .cursor { display: none; }
     }
   </style>
 </head>
 <body>
   <!-- Preloader -->
   <div class="preloader"><div class="spinner"></div></div>
+  <div class="cursor"></div>
 
   <nav role="navigation">
     <div class="nav-inner">
@@ -675,9 +770,10 @@
   <main class="container">
     <!-- HERO -->
     <div class="hero">
+      <div id="particles-js"></div>
       <div class="hero-card" data-aos="fade-up" data-aos-delay="100">
-        <h1 class="headline">AI/ML Engineer · NLP & GenAI Specialist</h1>
-        <p class="sub">Architecting intelligent, scalable systems for NLP, Agentic AI, and GenAI with expertise in LLMs, LangChain, PyTorch, and AWS. Transforming data into impactful solutions.</p>
+        <h1 class="headline">AI/ML Visionary · NLP & GenAI Innovator</h1>
+        <p class="sub">Architecting transformative AI systems for NLP, Agentic AI, and GenAI with mastery in LLMs, LangChain, PyTorch, and AWS. Driving innovation through data and intelligence.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#projects" aria-label="View Projects"><i class="fas fa-rocket"></i> Explore Projects</a>
           <a class="btn btn-ghost" href="/resume.pdf" download aria-label="Download Resume"><i class="fas fa-file-alt"></i> Resume</a>
@@ -689,7 +785,7 @@
           <div class="stat" data-aos="zoom-in" data-aos-delay="400"><strong>15+</strong><small>Deployments</small></div>
           <div class="stat" data-aos="zoom-in" data-aos-delay="500"><strong>94%</strong><small>Avg Accuracy</small></div>
         </div>
-        <div style="margin-top:24px; color:var(--muted); font-size:1rem">
+        <div style="margin-top:28px; color:var(--muted); font-size:1.1rem">
           <strong>Tech Stack:</strong> PyTorch · Hugging Face · LangChain · AWS · Docker · LoRA/QLoRA
         </div>
       </div>
@@ -701,14 +797,14 @@
         <div class="meta">
           <div>
             <div style="font-weight:800">Dilip Kumar Yadav</div>
-            <div style="color:var(--muted); font-size:0.95rem">AI/ML Engineer — NLP · GenAI · Agentic AI</div>
+            <div style="color:var(--muted); font-size:1rem">AI/ML Engineer — NLP · GenAI · Agentic AI</div>
           </div>
           <div style="text-align:right">
             <div style="font-weight:700">Gurgaon, India</div>
-            <div style="color:var(--muted); font-size:0.9rem">kumardilip218@gmail.com · +91-7905618273</div>
+            <div style="color:var(--muted); font-size:0.95rem">kumardilip218@gmail.com · +91-7905618273</div>
           </div>
         </div>
-        <div style="display:flex; gap:12px; justify-content:space-between; margin-top:12px">
+        <div style="display:flex; gap:16px; justify-content:space-between; margin-top:16px; flex-wrap:wrap">
           <a class="btn btn-ghost" href="https://github.com/dilipkumaryadav" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i> GitHub</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/dilip-kumar-yadav" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i> LinkedIn</a>
         </div>
@@ -718,22 +814,22 @@
     <!-- SUMMARY -->
     <section id="summary" class="card" data-aos="fade-up" data-aos-delay="100">
       <h2><i class="fas fa-briefcase"></i> Professional Summary</h2>
-      <p>Results-driven AI/ML and NLP engineer with proven expertise in building scalable, intelligent systems using Machine Learning, Deep Learning, and Generative AI. Skilled in fine-tuning LLMs (LoRA, QLoRA), developing agentic AI and RAG frameworks using LangChain, LlamaIndex, Transformers, Hugging Face, and vector databases. Experienced in deploying production-grade solutions leveraging Python, SQL, MongoDB, Docker, AWS, and REST APIs. Delivered 30–40% improvements in system performance by designing multimodal pipelines and optimizing inference workflows. Passionate about applying advanced analytics and automation to solve real-world problems and drive measurable business value.</p>
+      <p>World-class AI/ML and NLP engineer with a proven track record of delivering cutting-edge, scalable systems using Machine Learning, Deep Learning, and Generative AI. Expert in fine-tuning LLMs with LoRA/QLoRA, building agentic AI and RAG frameworks with LangChain, LlamaIndex, Transformers, and Hugging Face. Proficient in deploying production-grade solutions using Python, SQL, MongoDB, Docker, AWS, and REST APIs. Achieved 30–40% performance improvements through multimodal pipelines and optimized inference workflows. Dedicated to solving complex challenges with innovative AI solutions that deliver measurable business impact.</p>
     </section>
 
     <!-- EDUCATION -->
     <section id="education" class="card" data-aos="fade-up" data-aos-delay="200">
       <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-      <div style="margin-top:16px; display:flex; flex-direction:column; gap:16px">
-        <article style="padding:16px; border-radius:12px; background:var(--glass); backdrop-filter:blur(10px);">
+      <div style="margin-top:20px; display:flex; flex-direction:column; gap:20px">
+        <article style="padding:20px; border-radius:16px; background:var(--glass); backdrop-filter:blur(12px);">
           <div style="font-weight:800">M.Tech, IIIT Delhi</div>
           <div style="color:var(--muted)">86.2%</div>
         </article>
-        <article style="padding:16px; border-radius:12px; background:var(--glass); backdrop-filter:blur(10px);">
+        <article style="padding:20px; border-radius:16px; background:var(--glass); backdrop-filter:blur(12px);">
           <div style="font-weight:800">B.Tech, DPU</div>
           <div style="color:var(--muted)">78%</div>
         </article>
-        <article style="padding:16px; border-radius:12px; background:var(--glass); backdrop-filter:blur(10px);">
+        <article style="padding:20px; border-radius:16px; background:var(--glass); backdrop-filter:blur(12px);">
           <div style="font-weight:800">12th & 10th, Kendriya Vidyalaya</div>
           <div style="color:var(--muted)">12th: 70% | 10th: 74%</div>
         </article>
@@ -743,93 +839,93 @@
     <!-- SKILLS -->
     <section id="skills" class="card" data-aos="fade-up" data-aos-delay="300">
       <h2><i class="fas fa-tools"></i> Skills</h2>
-      <div class="grid-2" style="margin-top:16px">
+      <div class="grid-2" style="margin-top:20px">
         <div>
           <h3>Programming & Data Science</h3>
-          <div class="skills-wrap" style="margin:12px 0">
-            <span class="skill-pill">Python</span>
-            <span class="skill-pill">SQL</span>
-            <span class="skill-pill">Bash</span>
-            <span class="skill-pill">R</span>
-            <span class="skill-pill">MATLAB</span>
-            <span class="skill-pill">Pandas</span>
-            <span class="skill-pill">NumPy</span>
-            <span class="skill-pill">SciPy</span>
-            <span class="skill-pill">Scikit-learn</span>
-            <span class="skill-pill">Matplotlib</span>
-            <span class="skill-pill">Seaborn</span>
-            <span class="skill-pill">Power BI</span>
-            <span class="skill-pill">Tableau</span>
-            <span class="skill-pill">Excel</span>
-            <span class="skill-pill">Statistics</span>
-            <span class="skill-pill">XGBoost</span>
-            <span class="skill-pill">LightGBM</span>
-            <span class="skill-pill">KNN</span>
-            <span class="skill-pill">SVM</span>
-            <span class="skill-pill">Linear Regression</span>
-            <span class="skill-pill">Logistic Regression</span>
-            <span class="skill-pill">Random Forest</span>
+          <div class="skills-wrap" style="margin:16px 0">
+            <span class="skill-pill" style="animation-delay:0s">Python</span>
+            <span class="skill-pill" style="animation-delay:0.2s">SQL</span>
+            <span class="skill-pill" style="animation-delay:0.4s">Bash</span>
+            <span class="skill-pill" style="animation-delay:0.6s">R</span>
+            <span class="skill-pill" style="animation-delay:0.8s">MATLAB</span>
+            <span class="skill-pill" style="animation-delay:1s">Pandas</span>
+            <span class="skill-pill" style="animation-delay:1.2s">NumPy</span>
+            <span class="skill-pill" style="animation-delay:1.4s">SciPy</span>
+            <span class="skill-pill" style="animation-delay:1.6s">Scikit-learn</span>
+            <span class="skill-pill" style="animation-delay:1.8s">Matplotlib</span>
+            <span class="skill-pill" style="animation-delay:2s">Seaborn</span>
+            <span class="skill-pill" style="animation-delay:2.2s">Power BI</span>
+            <span class="skill-pill" style="animation-delay:2.4s">Tableau</span>
+            <span class="skill-pill" style="animation-delay:2.6s">Excel</span>
+            <span class="skill-pill" style="animation-delay:2.8s">Statistics</span>
+            <span class="skill-pill" style="animation-delay:3s">XGBoost</span>
+            <span class="skill-pill" style="animation-delay:3.2s">LightGBM</span>
+            <span class="skill-pill" style="animation-delay:3.4s">KNN</span>
+            <span class="skill-pill" style="animation-delay:3.6s">SVM</span>
+            <span class="skill-pill" style="animation-delay:3.8s">Linear Regression</span>
+            <span class="skill-pill" style="animation-delay:4s">Logistic Regression</span>
+            <span class="skill-pill" style="animation-delay:4.2s">Random Forest</span>
           </div>
-          <div style="margin-top:12px">
+          <div style="margin-top:16px">
             <div class="skill-row"><div>Python</div><div><span class="sr-only">Proficiency: 90%</span>90%</div></div>
             <div class="skill-bar" aria-hidden="true"><div class="bar" data-width="90%" data-tooltip="90% Proficiency"></div></div>
-            <div class="skill-row" style="margin-top:10px"><div>PyTorch</div><div><span class="sr-only">Proficiency: 85%</span>85%</div></div>
+            <div class="skill-row" style="margin-top:12px"><div>PyTorch</div><div><span class="sr-only">Proficiency: 85%</span>85%</div></div>
             <div class="skill-bar" aria-hidden="true"><div class="bar" data-width="85%" data-tooltip="85% Proficiency"></div></div>
-            <div class="skill-row" style="margin-top:10px"><div>Transformers</div><div><span class="sr-only">Proficiency: 80%</span>80%</div></div>
+            <div class="skill-row" style="margin-top:12px"><div>Transformers</div><div><span class="sr-only">Proficiency: 80%</span>80%</div></div>
             <div class="skill-bar" aria-hidden="true"><div class="bar" data-width="80%" data-tooltip="80% Proficiency"></div></div>
           </div>
         </div>
         <div>
           <h3>AI, ML & NLP</h3>
-          <div class="skills-wrap" style="margin:12px 0">
-            <span class="skill-pill">TensorFlow</span>
-            <span class="skill-pill">PyTorch</span>
-            <span class="skill-pill">Keras</span>
-            <span class="skill-pill">Hugging Face</span>
-            <span class="skill-pill">Transformers</span>
-            <span class="skill-pill">LangChain</span>
-            <span class="skill-pill">LlamaIndex</span>
-            <span class="skill-pill">OpenAI APIs</span>
-            <span class="skill-pill">LoRA</span>
-            <span class="skill-pill">QLoRA</span>
-            <span class="skill-pill">Agentic AI</span>
-            <span class="skill-pill">RAG</span>
-            <span class="skill-pill">Flowise AI</span>
-            <span class="skill-pill">Dify</span>
-            <span class="skill-pill">n8n</span>
-            <span class="skill-pill">CrewAI</span>
-            <span class="skill-pill">NLTK</span>
-            <span class="skill-pill">SpaCy</span>
-            <span class="skill-pill">TextBlob</span>
-            <span class="skill-pill">NER</span>
-            <span class="skill-pill">Topic Modeling</span>
-            <span class="skill-pill">Prompt Engineering</span>
-            <span class="skill-pill">Prompt Evaluation</span>
+          <div class="skills-wrap" style="margin:16px 0">
+            <span class="skill-pill" style="animation-delay:0s">TensorFlow</span>
+            <span class="skill-pill" style="animation-delay:0.2s">PyTorch</span>
+            <span class="skill-pill" style="animation-delay:0.4s">Keras</span>
+            <span class="skill-pill" style="animation-delay:0.6s">Hugging Face</span>
+            <span class="skill-pill" style="animation-delay:0.8s">Transformers</span>
+            <span class="skill-pill" style="animation-delay:1s">LangChain</span>
+            <span class="skill-pill" style="animation-delay:1.2s">LlamaIndex</span>
+            <span class="skill-pill" style="animation-delay:1.4s">OpenAI APIs</span>
+            <span class="skill-pill" style="animation-delay:1.6s">LoRA</span>
+            <span class="skill-pill" style="animation-delay:1.8s">QLoRA</span>
+            <span class="skill-pill" style="animation-delay:2s">Agentic AI</span>
+            <span class="skill-pill" style="animation-delay:2.2s">RAG</span>
+            <span class="skill-pill" style="animation-delay:2.4s">Flowise AI</span>
+            <span class="skill-pill" style="animation-delay:2.6s">Dify</span>
+            <span class="skill-pill" style="animation-delay:2.8s">n8n</span>
+            <span class="skill-pill" style="animation-delay:3s">CrewAI</span>
+            <span class="skill-pill" style="animation-delay:3.2s">NLTK</span>
+            <span class="skill-pill" style="animation-delay:3.4s">SpaCy</span>
+            <span class="skill-pill" style="animation-delay:3.6s">TextBlob</span>
+            <span class="skill-pill" style="animation-delay:3.8s">NER</span>
+            <span class="skill-pill" style="animation-delay:4s">Topic Modeling</span>
+            <span class="skill-pill" style="animation-delay:4.2s">Prompt Engineering</span>
+            <span class="skill-pill" style="animation-delay:4.4s">Prompt Evaluation</span>
           </div>
-          <h3 style="margin-top:16px">MLOps, Deployment & Tools</h3>
-          <div class="skills-wrap" style="margin:12px 0">
-            <span class="skill-pill">Docker</span>
-            <span class="skill-pill">Kubernetes</span>
-            <span class="skill-pill">Flask</span>
-            <span class="skill-pill">FastAPI</span>
-            <span class="skill-pill">REST APIs</span>
-            <span class="skill-pill">GraphQL</span>
-            <span class="skill-pill">Apollo Client</span>
-            <span class="skill-pill">Git</span>
-            <span class="skill-pill">GitHub</span>
-            <span class="skill-pill">CI/CD</span>
-            <span class="skill-pill">Model Deployment</span>
-            <span class="skill-pill">Model Monitoring</span>
-            <span class="skill-pill">AI Automation</span>
+          <h3 style="margin-top:20px">MLOps, Deployment & Tools</h3>
+          <div class="skills-wrap" style="margin:16px 0">
+            <span class="skill-pill" style="animation-delay:0s">Docker</span>
+            <span class="skill-pill" style="animation-delay:0.2s">Kubernetes</span>
+            <span class="skill-pill" style="animation-delay:0.4s">Flask</span>
+            <span class="skill-pill" style="animation-delay:0.6s">FastAPI</span>
+            <span class="skill-pill" style="animation-delay:0.8s">REST APIs</span>
+            <span class="skill-pill" style="animation-delay:1s">GraphQL</span>
+            <span class="skill-pill" style="animation-delay:1.2s">Apollo Client</span>
+            <span class="skill-pill" style="animation-delay:1.4s">Git</span>
+            <span class="skill-pill" style="animation-delay:1.6s">GitHub</span>
+            <span class="skill-pill" style="animation-delay:1.8s">CI/CD</span>
+            <span class="skill-pill" style="animation-delay:2s">Model Deployment</span>
+            <span class="skill-pill" style="animation-delay:2.2s">Model Monitoring</span>
+            <span class="skill-pill" style="animation-delay:2.4s">AI Automation</span>
           </div>
-          <h3 style="margin-top:16px">Cloud & Databases</h3>
-          <div class="skills-wrap" style="margin:12px 0">
-            <span class="skill-pill">AWS</span>
-            <span class="skill-pill">MongoDB</span>
-            <span class="skill-pill">PostgreSQL</span>
-            <span class="skill-pill">MySQL</span>
-            <span class="skill-pill">Snowflake</span>
-            <span class="skill-pill">Neo4j</span>
+          <h3 style="margin-top:20px">Cloud & Databases</h3>
+          <div class="skills-wrap" style="margin:16px 0">
+            <span class="skill-pill" style="animation-delay:0s">AWS</span>
+            <span class="skill-pill" style="animation-delay:0.2s">MongoDB</span>
+            <span class="skill-pill" style="animation-delay:0.4s">PostgreSQL</span>
+            <span class="skill-pill" style="animation-delay:0.6s">MySQL</span>
+            <span class="skill-pill" style="animation-delay:0.8s">Snowflake</span>
+            <span class="skill-pill" style="animation-delay:1s">Neo4j</span>
           </div>
         </div>
       </div>
@@ -838,16 +934,16 @@
     <!-- EXPERIENCE -->
     <section id="experience" class="card" data-aos="fade-up" data-aos-delay="400">
       <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
-      <div class="timeline" style="margin-top:16px">
+      <div class="timeline" style="margin-top:20px">
         <article data-aos="flip-left" data-aos-delay="100">
-          <div style="display:flex; justify-content:space-between; gap:16px; align-items:center">
+          <div style="display:flex; justify-content:space-between; gap:20px; align-items:center">
             <div>
               <div style="font-weight:800">ZKteco Pvt Ltd (Bangalore)</div>
               <div style="color:var(--muted)">Data Scientist – Artificial Intelligence | Mar 2024 – Present</div>
             </div>
             <div class="project-metrics">Precision@K=0.91 · Recall@K=0.87</div>
           </div>
-          <ul style="margin-top:12px">
+          <ul style="margin-top:16px">
             <li>Engineered an Agentic AI platform automating tariff classification, declaration validation, duty rate calculation, and goods valuation.</li>
             <li>Built with LangChain, FAISS, Hugging Face LLMs, and MiniLM embeddings, fine-tuned via LoRA, QLoRA, PEFT, CoT, and RLHF.</li>
             <li>Deployed on AWS (S3, EC2, ECS/ECR) with monitoring dashboards, achieving MMR=0.82, 32% lower perplexity.</li>
@@ -855,14 +951,14 @@
           </ul>
         </article>
         <article data-aos="flip-left" data-aos-delay="200">
-          <div style="display:flex; justify-content:space-between; gap:16px; align-items:center">
+          <div style="display:flex; justify-content:space-between; gap:20px; align-items:center">
             <div>
               <div style="font-weight:800">K&S Partners (Gurgaon)</div>
               <div style="color:var(--muted)">AI/ML Engineer (Consultant) | Nov 2023 – Feb 2024</div>
             </div>
             <div class="project-metrics">BLEU=0.79 · ROUGE-L=0.76</div>
           </div>
-          <ul style="margin-top:12px">
+          <ul style="margin-top:16px">
             <li>Engineered an OCR–LLM system for legal document intelligence, extracting structured, unstructured, and tabular data using pdfplumber, OpenCV, Tesseract, and Camelot.</li>
             <li>Designed JSON pipelines with OpenAI ada-002 embeddings, Pinecone indexing, and an interactive Q&A chatbot via LlamaIndex + OpenAI LLMs.</li>
             <li>Optimized with prompt engineering and LoRA/QLoRA fine-tuning, achieving 45% latency reduction and 28% lower perplexity.</li>
@@ -870,14 +966,14 @@
           </ul>
         </article>
         <article data-aos="flip-left" data-aos-delay="300">
-          <div style="display:flex; justify-content:space-between; gap:16px; align-items:center">
+          <div style="display:flex; justify-content:space-between; gap:20px; align-items:center">
             <div>
               <div style="font-weight:800">InnoSolve Solutions Pvt Ltd (Kolkata)</div>
               <div style="color:var(--muted)">Data Scientist | Nov 2021 – Oct 2023</div>
             </div>
             <div class="project-metrics">Accuracy=88% · F1=0.91</div>
           </div>
-          <ul style="margin-top:12px">
+          <ul style="margin-top:16px">
             <li>Developed an enterprise-scale multi-PDF chatbot leveraging Anthropic Claude LLM, Titan embeddings, and FAISS vector DB, deployed on AWS Bedrock, Lambda, and S3.</li>
             <li>Implemented retrieval and summarization evaluation (ROUGE-1=0.81, BLEU=0.76, Recall@5=0.89, MRR=0.85) with autoscaling and CI/CD.</li>
             <li>Built a Random Forest model to detect undeclared goods and valuation anomalies, with SHAP explainability, achieving Precision=0.88, Recall=0.94, AUC-ROC=0.94.</li>
@@ -890,11 +986,19 @@
     <!-- PROJECTS -->
     <section id="projects" class="card" data-aos="fade-up" data-aos-delay="500">
       <h2><i class="fas fa-rocket"></i> Projects</h2>
-      <div style="margin-top:16px" class="projects-grid">
-        <div class="project" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-aos="zoom-in" data-aos-delay="100">
-          <div class="meta"><div style="font-weight:800">Conversational Voice AI Assistant</div><div style="color:var(--muted); font-size:0.95rem">Aug 2023 – Jan 2024</div></div>
+      <div style="margin-top:20px" class="projects-grid">
+        <div class="project featured" data-tilt data-tilt-max="12" data-tilt-speed="500" data-tilt-perspective="1200" data-aos="zoom-in" data-aos-delay="100">
+          <div class="project-preview"><img src="/projects/voice-ai.jpg" alt="Conversational Voice AI Preview" loading="lazy"></div>
+          <div class="meta"><div style="font-weight:800">Conversational Voice AI Assistant</div><div style="color:var(--muted); font-size:1rem">Aug 2023 – Jan 2024</div></div>
           <p>Built a voice-enabled assistant using OpenAI Whisper for Speech-to-Text and pyttsx3/gTTS for TTS, integrated with LLMs for contextual query handling. Achieved ~94% STT accuracy across accents. Packaged as a FastAPI microservice, containerized with Docker, and deployed on AWS ECS + Lambda.</p>
-          <div class="project-metrics">STT Accuracy: 94%</div>
+          <div class="project-metrics">
+            <svg width="80" height="40" viewBox="0 0 80 40">
+              <rect x="0" y="20" width="0" height="10" fill="var(--primary)" style="animation: bar-grow 1s ease-out forwards; animation-delay: 0.5s;">
+                <animate attributeName="width" from="0" to="75" dur="1s" fill="freeze" begin="0.5s"/>
+              </rect>
+            </svg>
+            STT Accuracy: 94%
+          </div>
           <div class="badges">
             <span class="badge">Whisper</span>
             <span class="badge">FastAPI</span>
@@ -902,59 +1006,91 @@
             <span class="badge">Docker</span>
             <span class="badge">AWS</span>
           </div>
-          <div style="display:flex; gap:12px; margin-top:12px">
+          <div style="display:flex; gap:16px; margin-top:16px">
             <a class="btn btn-ghost" href="#" aria-label="Conversational Voice AI GitHub"><i class="fab fa-github"></i> GitHub</a>
             <a class="btn btn-ghost" href="#" aria-label="Conversational Voice AI Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
           </div>
         </div>
-        <div class="project" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-aos="zoom-in" data-aos-delay="200">
-          <div class="meta"><div style="font-weight:800">Credit Card Fraud Detection</div><div style="color:var(--muted); font-size:0.95rem">Jan 2023 – May 2023</div></div>
+        <div class="project" data-tilt data-tilt-max="12" data-tilt-speed="500" data-tilt-perspective="1200" data-aos="zoom-in" data-aos-delay="200">
+          <div class="project-preview"><img src="/projects/fraud-detection.jpg" alt="Credit Card Fraud Detection Preview" loading="lazy"></div>
+          <div class="meta"><div style="font-weight:800">Credit Card Fraud Detection</div><div style="color:var(--muted); font-size:1rem">Jan 2023 – May 2023</div></div>
           <p>Developed an XGBoost-based fraud detection model on a highly imbalanced dataset using SMOTE for resampling and SHAP for interpretability. Exposed via FastAPI and deployed on AWS Lambda with S3 triggers. Achieved 96% precision and 94% recall.</p>
-          <div class="project-metrics">Precision: 96% · Recall: 94%</div>
+          <div class="project-metrics">
+            <svg width="80" height="40" viewBox="0 0 80 40">
+              <rect x="0" y="20" width="0" height="10" fill="var(--primary)" style="animation: bar-grow 1s ease-out forwards; animation-delay: 0.5s;">
+                <animate attributeName="width" from="0" to="77" dur="1s" fill="freeze" begin="0.5s"/>
+              </rect>
+            </svg>
+            Precision: 96% · Recall: 94%
+          </div>
           <div class="badges">
             <span class="badge">XGBoost</span>
             <span class="badge">SHAP</span>
             <span class="badge">FastAPI</span>
             <span class="badge">AWS</span>
           </div>
-          <div style="display:flex; gap:12px; margin-top:12px">
+          <div style="display:flex; gap:16px; margin-top:16px">
             <a class="btn btn-ghost" href="#" aria-label="Credit Card Fraud Detection GitHub"><i class="fab fa-github"></i> GitHub</a>
             <a class="btn btn-ghost" href="#" aria-label="Credit Card Fraud Detection Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
           </div>
         </div>
-        <div class="project" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-aos="zoom-in" data-aos-delay="300">
-          <div class="meta"><div style="font-weight:800">AI-Powered Recommendation System</div><div style="color:var(--muted); font-size:0.95rem">Sep 2022 – Dec 2022</div></div>
+        <div class="project" data-tilt data-tilt-max="12" data-tilt-speed="500" data-tilt-perspective="1200" data-aos="zoom-in" data-aos-delay="300">
+          <div class="project-preview"><img src="/projects/recommendation.jpg" alt="AI-Powered Recommendation System Preview" loading="lazy"></div>
+          <div class="meta"><div style="font-weight:800">AI-Powered Recommendation System</div><div style="color:var(--muted); font-size:1rem">Sep 2022 – Dec 2022</div></div>
           <p>Designed a personalized recommendation system using collaborative and content-based filtering with KNN and Matrix Factorization. Optimized with LoRA fine-tuning, achieving 85% accuracy and 92% precision.</p>
-          <div class="project-metrics">Accuracy: 85% · Precision: 92%</div>
+          <div class="project-metrics">
+            <svg width="80" height="40" viewBox="0 0 80 40">
+              <rect x="0" y="20" width="0" height="10" fill="var(--primary)" style="animation: bar-grow 1s ease-out forwards; animation-delay: 0.5s;">
+                <animate attributeName="width" from="0" to="73" dur="1s" fill="freeze" begin="0.5s"/>
+              </rect>
+            </svg>
+            Accuracy: 85% · Precision: 92%
+          </div>
           <div class="badges">
             <span class="badge">KNN</span>
             <span class="badge">Matrix Factorization</span>
             <span class="badge">LoRA</span>
           </div>
-          <div style="display:flex; gap:12px; margin-top:12px">
+          <div style="display:flex; gap:16px; margin-top:16px">
             <a class="btn btn-ghost" href="#" aria-label="Recommendation System GitHub"><i class="fab fa-github"></i> GitHub</a>
             <a class="btn btn-ghost" href="#" aria-label="Recommendation System Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
           </div>
         </div>
-        <div class="project" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-aos="zoom-in" data-aos-delay="400">
-          <div class="meta"><div style="font-weight:800">Predictive Maintenance for Industrial Equipment</div><div style="color:var(--muted); font-size:0.95rem">Jan 2022 – May 2022</div></div>
+        <div class="project" data-tilt data-tilt-max="12" data-tilt-speed="500" data-tilt-perspective="1200" data-aos="zoom-in" data-aos-delay="400">
+          <div class="project-preview"><img src="/projects/maintenance.jpg" alt="Predictive Maintenance Preview" loading="lazy"></div>
+          <div class="meta"><div style="font-weight:800">Predictive Maintenance for Industrial Equipment</div><div style="color:var(--muted); font-size:1rem">Jan 2022 – May 2022</div></div>
           <p>Designed a multivariate LSTM-based predictive maintenance system using real-time sensor data. Built an MLOps pipeline with FastAPI, Docker, and AWS ECS/ECR, achieving 93% classification accuracy and 35% reduction in unplanned downtimes.</p>
-          <div class="project-metrics">Accuracy: 93% · Downtime Reduction: 35%</div>
+          <div class="project-metrics">
+            <svg width="80" height="40" viewBox="0 0 80 40">
+              <rect x="0" y="20" width="0" height="10" fill="var(--primary)" style="animation: bar-grow 1s ease-out forwards; animation-delay: 0.5s;">
+                <animate attributeName="width" from="0" to="74" dur="1s" fill="freeze" begin="0.5s"/>
+              </rect>
+            </svg>
+            Accuracy: 93% · Downtime Reduction: 35%
+          </div>
           <div class="badges">
             <span class="badge">LSTM</span>
             <span class="badge">FastAPI</span>
             <span class="badge">Docker</span>
             <span class="badge">AWS</span>
           </div>
-          <div style="display:flex; gap:12px; margin-top:12px">
+          <div style="display:flex; gap:16px; margin-top:16px">
             <a class="btn btn-ghost" href="#" aria-label="Predictive Maintenance GitHub"><i class="fab fa-github"></i> GitHub</a>
             <a class="btn btn-ghost" href="#" aria-label="Predictive Maintenance Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
           </div>
         </div>
-        <div class="project" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-aos="zoom-in" data-aos-delay="500">
-          <div class="meta"><div style="font-weight:800">Sentiment Analysis Using NLP</div><div style="color:var(--muted); font-size:0.95rem">Nov 2021 – Dec 2021</div></div>
+        <div class="project" data-tilt data-tilt-max="12" data-tilt-speed="500" data-tilt-perspective="1200" data-aos="zoom-in" data-aos-delay="500">
+          <div class="project-preview"><img src="/projects/sentiment.jpg" alt="Sentiment Analysis Preview" loading="lazy"></div>
+          <div class="meta"><div style="font-weight:800">Sentiment Analysis Using NLP</div><div style="color:var(--muted); font-size:1rem">Nov 2021 – Dec 2021</div></div>
           <p>Developed a sentiment analysis pipeline using NLTK, Scikit-learn, and TensorFlow, achieving 91% accuracy on 10K+ social media texts. Deployed as a REST API using Docker and AWS.</p>
-          <div class="project-metrics">Accuracy: 91%</div>
+          <div class="project-metrics">
+            <svg width="80" height="40" viewBox="0 0 80 40">
+              <rect x="0" y="20" width="0" height="10" fill="var(--primary)" style="animation: bar-grow 1s ease-out forwards; animation-delay: 0.5s;">
+                <animate attributeName="width" from="0" to="72" dur="1s" fill="freeze" begin="0.5s"/>
+              </rect>
+            </svg>
+            Accuracy: 91%
+          </div>
           <div class="badges">
             <span class="badge">NLTK</span>
             <span class="badge">Scikit-learn</span>
@@ -962,7 +1098,7 @@
             <span class="badge">Docker</span>
             <span class="badge">AWS</span>
           </div>
-          <div style="display:flex; gap:12px; margin-top:12px">
+          <div style="display:flex; gap:16px; margin-top:16px">
             <a class="btn btn-ghost" href="#" aria-label="Sentiment Analysis GitHub"><i class="fab fa-github"></i> GitHub</a>
             <a class="btn btn-ghost" href="#" aria-label="Sentiment Analysis Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
           </div>
@@ -970,28 +1106,44 @@
       </div>
     </section>
 
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="card" data-aos="fade-up" data-aos-delay="600">
+      <h2><i class="fas fa-quote-left"></i> Testimonials</h2>
+      <div class="testimonials" style="margin-top:20px" aria-live="polite">
+        <div class="testimonial" data-aos="zoom-in" data-aos-delay="100">
+          <p>"Dilip's expertise in NLP and GenAI transformed our document processing pipeline, reducing turnaround time by 60%." — <strong>Project Manager, ZKteco</strong></p>
+        </div>
+        <div class="testimonial" data-aos="zoom-in" data-aos-delay="200">
+          <p>"His innovative approach to LLM fine-tuning delivered unparalleled performance for our legal AI system." — <strong>CTO, K&S Partners</strong></p>
+        </div>
+        <div class="testimonial" data-aos="zoom-in" data-aos-delay="300">
+          <p>"Dilip's MLOps pipelines ensured seamless deployment and monitoring, boosting our system reliability." — <strong>Lead Engineer, InnoSolve</strong></p>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
-    <section id="contact" class="card" data-aos="fade-up" data-aos-delay="600">
+    <section id="contact" class="card" data-aos="fade-up" data-aos-delay="700">
       <h2><i class="fas fa-envelope"></i> Contact</h2>
-      <div class="contact-row" style="margin-top:16px">
+      <div class="contact-row" style="margin-top:20px">
         <form class="contact-form" action="https://formspree.io/f/{YOUR_FORM_ID}" method="POST" role="form">
           <label for="name">Name</label>
           <input id="name" type="text" name="name" required aria-required="true">
-          <label for="email" style="margin-top:12px">Email</label>
+          <label for="email" style="margin-top:16px">Email</label>
           <input id="email" type="email" name="email" required aria-required="true">
-          <label for="message" style="margin-top:12px">Message</label>
+          <label for="message" style="margin-top:16px">Message</label>
           <textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
-          <div style="margin-top:12px; display:flex; gap:12px">
+          <div style="margin-top:16px; display:flex; gap:16px; flex-wrap:wrap">
             <button class="btn btn-primary" type="submit" aria-label="Send Message"><i class="fas fa-paper-plane"></i> Send Message</button>
             <a class="btn btn-ghost" href="mailto:kumardilip218@gmail.com" aria-label="Email Directly"><i class="fas fa-envelope"></i> Email Directly</a>
           </div>
         </form>
         <aside class="contact-info">
           <div style="font-weight:800">Get in Touch</div>
-          <div style="color:var(--muted); margin-top:12px">Email: <a href="mailto:kumardilip218@gmail.com" aria-label="Email">kumardilip218@gmail.com</a></div>
-          <div style="color:var(--muted); margin-top:8px">Phone: +91-7905618273</div>
-          <div style="color:var(--muted); margin-top:8px">Address: 35/59, U Block, DLF Phase 3, Gurgaon, Haryana</div>
-          <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap">
+          <div style="color:var(--muted); margin-top:16px">Email: <a href="mailto:kumardilip218@gmail.com" aria-label="Email">kumardilip218@gmail.com</a></div>
+          <div style="color:var(--muted); margin-top:12px">Phone: +91-7905618273</div>
+          <div style="color:var(--muted); margin-top:12px">Address: 35/59, U Block, DLF Phase 3, Gurgaon, Haryana</div>
+          <div style="margin-top:20px; display:flex; gap:16px; flex-wrap:wrap">
             <a class="btn btn-ghost" href="https://github.com/dilipkumaryadav" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i> GitHub</a>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/dilip-kumar-yadav" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i> LinkedIn</a>
             <a class="btn btn-ghost" href="https://dilipkumaryadav.github.io/portfolio/" target="_blank" aria-label="Portfolio"><i class="fas fa-globe"></i> Portfolio</a>
@@ -1004,6 +1156,7 @@
       <div>© 2025 Dilip Kumar Yadav · Built with <i class="fas fa-heart" style="color:var(--secondary)"></i> using HTML, CSS & JS · Hosted on GitHub Pages</div>
       <div class="ai-insights">
         <a href="https://github.com/dilipkumaryadav" target="_blank" aria-label="Explore AI Insights on GitHub">AI Insights <i class="fas fa-code"></i></a>
+        <a href="#" aria-label="Read AI Blog">AI Blog <i class="fas fa-book"></i></a>
       </div>
     </footer>
   </main>
@@ -1013,96 +1166,30 @@
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer onload="initAOS()"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js" integrity="sha512-H9E2v2rr3Xg8E3vG3vG7q3TjMI8gU41cA4uP3tG0YVv7l/3fIqb4kO3N0E7S2I1N2qD2Q7kRF3IIsNF3V1B3jPQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js" integrity="sha512-H9E2v2rr3Xg8E3vG3vG7q3tG0YVv7l/3fIqb4kO3N0E7S2I1N2qD2Q7kRF3IIsNF3V1B3jPQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
   <script>
     // Preloader
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.querySelector('.preloader').classList.add('hidden');
-      }, 500);
+      }, 600);
     });
 
     // AOS Initialization
     function initAOS() {
       if (typeof AOS !== 'undefined') {
-        AOS.init({ duration: 1000, once: true, easing: 'ease-in-out' });
+        AOS.init({ duration: 1200, once: true, easing: 'ease-out-cubic' });
       } else {
         console.warn('AOS library failed to load. Animations will be disabled.');
       }
     }
 
-    // Theme Toggle
-    const themeBtn = document.getElementById('themeBtn');
-    const themes = ['dark', 'light', 'neon'];
-    let currentThemeIndex = localStorage.getItem('themeIndex') ? parseInt(localStorage.getItem('themeIndex')) : 0;
-    if (themes[currentThemeIndex] !== 'dark') {
-      document.body.classList.add(themes[currentThemeIndex]);
-      themeBtn.innerHTML = themes[currentThemeIndex] === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-bolt"></i>';
-    }
-    themeBtn.addEventListener('click', () => {
-      document.body.classList.remove(...themes);
-      currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-      document.body.classList.add(themes[currentThemeIndex]);
-      themeBtn.innerHTML = themes[currentThemeIndex] === 'dark' ? '<i class="fas fa-moon"></i>' : themes[currentThemeIndex] === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-bolt"></i>';
-      localStorage.setItem('themeIndex', currentThemeIndex);
-    });
-
-    // Skill Bars Animation
-    const bars = document.querySelectorAll('.bar');
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          bars.forEach(b => b.style.width = b.getAttribute('data-width'));
-        }
-      });
-    }, { threshold: 0.3 });
-    obs.observe(document.querySelector('#skills'));
-
-    // Scroll Spy
-    const sections = document.querySelectorAll('main section');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const spy = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        const id = e.target.id;
-        const link = document.querySelector(`.nav-links a[href="#${id}"]`);
-        if (e.isIntersecting) {
-          navLinks.forEach(l => l.classList.remove('active'));
-          if (link) link.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-40% 0px -40% 0px' });
-    sections.forEach(s => spy.observe(s));
-
-    // Smooth Fallback for Nav Links
-    navLinks.forEach(a => {
-      a.addEventListener('click', () => {
-        navLinks.forEach(l => l.classList.remove('active'));
-        a.classList.add('active');
-      });
-    });
-
-    // Back to Top Button
-    const backToTop = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Nav Shadow on Scroll
-    window.addEventListener('scroll', () => {
-      document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    // Initialize Vanilla Tilt
-    if (typeof VanillaTilt !== 'undefined') {
-      VanillaTilt.init(document.querySelectorAll('.project'), {
-        max: 10,
-        speed: 400,
-        perspective: 1000
-      });
-    }
-  </script>
-</body>
-</html>
+    // Particles.js
+    if (typeof particlesJS !== 'undefined') {
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 50, density: { enable: true, value_area: 800 } },
+          color: { value: ['#00e7ff', '#ff0055', '#ffcc00'] },
+          shape: { type: 'circle' },
+          opacity: { value: 0.5, random: true
